@@ -1,0 +1,105 @@
+---
+layout: default
+---
+
+{% assign hero_image = page.header-img | default: site.header-img %}
+<header class="hero" {% if hero_image %}style="background-image: linear-gradient(135deg, rgba(18, 24, 38, 0.78), rgba(44, 63, 82, 0.54)), url('{{ hero_image | relative_url }}')"{% endif %}>
+    <div class="container narrow">
+        <p class="eyebrow">{{ page.date | date: "%Y-%m-%d" }}</p>
+        <h1>{{ page.title }}</h1>
+        {% if page.subtitle %}
+        <p class="hero-copy">{{ page.subtitle }}</p>
+        {% endif %}
+        {% if page.tags %}
+        <div class="tag-row">
+            {% for tag in page.tags %}
+            <a href="{{ '/tags/#' | append: tag | prepend: site.baseurl }}">{{ tag }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</header>
+
+<div class="container article-shell">
+    <article class="article">
+        {{ content }}
+    </article>
+
+    {% if page.catalog != false %}
+    <aside class="article-toc" aria-label="文章目录">
+        <p class="toc-title">目录</p>
+        <nav id="post-toc"></nav>
+    </aside>
+    {% endif %}
+</div>
+
+<nav class="container post-nav">
+    {% if page.previous.url %}
+    <a href="{{ page.previous.url | prepend: site.baseurl }}">&larr; {{ page.previous.title }}</a>
+    {% endif %}
+    {% if page.next.url %}
+    <a href="{{ page.next.url | prepend: site.baseurl }}">{{ page.next.title }} &rarr;</a>
+    {% endif %}
+</nav>
+
+{% if page.catalog != false %}
+<script>
+(function () {
+    var toc = document.getElementById("post-toc");
+    if (!toc) {
+        return;
+    }
+
+    var headings = Array.prototype.slice.call(document.querySelectorAll(".article h2, .article h3"));
+    var tocWrapper = toc.closest(".article-toc");
+
+    if (headings.length < 2) {
+        if (tocWrapper) {
+            tocWrapper.hidden = true;
+        }
+        return;
+    }
+
+    var usedIds = {};
+
+    headings.forEach(function (heading) {
+        var currentId = heading.getAttribute("id");
+
+        if (!currentId) {
+            var slug = heading.textContent.trim()
+                .toLowerCase()
+                .replace(/[^\w\u4e00-\u9fa5]+/g, "-")
+                .replace(/^-+|-+$/g, "") || "section";
+            var baseSlug = slug;
+            var counter = 2;
+
+            while (document.getElementById(slug) || usedIds[slug]) {
+                slug = baseSlug + "-" + counter;
+                counter += 1;
+            }
+
+            heading.setAttribute("id", slug);
+            currentId = slug;
+        }
+
+        usedIds[currentId] = true;
+    });
+
+    var list = document.createElement("ol");
+
+    headings.forEach(function (heading) {
+        var item = document.createElement("li");
+        var link = document.createElement("a");
+
+        item.className = "toc-level-" + heading.tagName.substring(1);
+        link.href = "#" + heading.getAttribute("id");
+        link.textContent = heading.textContent;
+
+        item.appendChild(link);
+        list.appendChild(item);
+    });
+
+    toc.appendChild(list);
+})();
+</script>
+{% endif %}

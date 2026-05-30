@@ -1,0 +1,27 @@
+---
+layout: default
+description: "Thinking will not overcome fear but action will."
+---
+
+<header class="hero hero-home" style="background-image: linear-gradient(135deg, rgba(18, 24, 38, 0.78), rgba(44, 63, 82, 0.54)), url('{{ site.header-img | relative_url }}')">
+    <div class="container narrow">
+        <p class="eyebrow">ctzmx.github.io</p>
+        <h1>{{ site.title }}</h1>
+        <p class="hero-copy">{{ page.description }}</p>
+    </div>
+</header>
+
+<section class="container post-list">
+    {% for post in site.posts %}
+    <article class="post-preview">
+        <a href="{{ post.url | prepend: site.baseurl }}">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+            <h2>{{ post.title }}</h2>
+            {% if post.subtitle %}
+            <p class="subtitle">{{ post.subtitle }}</p>
+            {% endif %}
+            <p>{{ post.content | strip_html | truncate: 180 }}</p>
+        </a>
+    </article>
+    {% endfor %}
+</section>

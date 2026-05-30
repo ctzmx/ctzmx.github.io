@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+{% assign hero_image = page.header-img | default: site.header-img %}
+<header class="hero" {% if hero_image %}style="background-image: linear-gradient(135deg, rgba(18, 24, 38, 0.78), rgba(44, 63, 82, 0.54)), url('{{ hero_image | relative_url }}')"{% endif %}>
+    <div class="container narrow">
+        <p class="eyebrow">{{ site.title }}</p>
+        <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+        {% if page.description %}
+        <p class="hero-copy">{{ page.description }}</p>
+        {% endif %}
+    </div>
+</header>
+
+<section class="container content">
+    {{ content }}
+</section>

@@ -1,0 +1,34 @@
+---
+title: Tags
+layout: default
+description: "Browse posts by tag."
+permalink: /tags/
+---
+
+<header class="hero" style="background-image: linear-gradient(135deg, rgba(18, 24, 38, 0.78), rgba(44, 63, 82, 0.54)), url('{{ site.header-img | relative_url }}')">
+    <div class="container narrow">
+        <p class="eyebrow">{{ site.title }}</p>
+        <h1>Tags</h1>
+        <p class="hero-copy">{{ page.description }}</p>
+    </div>
+</header>
+
+<section class="container content">
+    <div class="tag-cloud">
+        {% for tag in site.tags %}
+        <a href="#{{ tag[0] }}">{{ tag[0] }}</a>
+        {% endfor %}
+    </div>
+
+    {% for tag in site.tags %}
+    <section class="tag-section">
+        <h2 id="{{ tag[0] }}">{{ tag[0] }}</h2>
+        {% for post in tag[1] %}
+        <article class="tag-post">
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+        </article>
+        {% endfor %}
+    </section>
+    {% endfor %}
+</section>

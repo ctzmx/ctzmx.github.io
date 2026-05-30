@@ -1,0 +1,26 @@
+# Site settings
+title: ctZmx Blog
+SEOTitle: ctZmx Blog
+description: "Personal notes and writing."
+keyword: "ctzmx, blog"
+url: "https://ctzmx.github.io"
+baseurl: ""
+email: ctzmx05@gmail.com
+github_username: ctzmx
+
+# Display settings
+header-img: /img/ct/1%20(218).jpg
+sidebar: true
+sidebar-about-description: "Thinking will not overcome fear but action will."
+sidebar-avatar: /img/ct/avatar_g.jpg
+
+# Build settings
+permalink: pretty
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+
+# Tags
+featured-tags: true
+featured-condition-size: 1
