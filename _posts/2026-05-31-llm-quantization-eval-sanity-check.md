@@ -22,7 +22,7 @@ tags:
 
 这一步的目标很简单：让 BF16 和低精度模型看到完全相同的输入，使用完全相同的解码规则，并被完全相同的脚本打分。
 
-## 0x00 总原则：先固定变量
+## 0 总原则：先固定变量
 
 排查时建议至少准备三组结果：
 
@@ -45,7 +45,7 @@ tags:
 
 也就是说，部署框架里的 BF16 版本要先和原始 BF16 对齐。否则低精度对比没有可靠基线。
 
-## 0x01 tokenizer 必须一致
+## 1 tokenizer 必须一致
 
 tokenizer 决定文本如何被切成 token，以及每个 token 对应什么 id。对模型来说，输入不是原始字符串，而是 token id 序列。
 
@@ -76,7 +76,7 @@ tokenizer 决定文本如何被切成 token，以及每个 token 对应什么 id
 
 这三者应该完全一致。至少在进入模型前，`input_ids`、`attention_mask`、`position_ids` 都应该可解释、可对齐。
 
-## 0x02 chat template 必须一致
+## 2 chat template 必须一致
 
 对话模型通常不会直接吃用户输入，而是先经过 chat template 拼成模型训练时熟悉的格式。
 
@@ -123,7 +123,7 @@ Assistant:
 
 很多“量化后效果差”的问题，最后其实是因为 BF16 测试脚本和部署服务使用了不同 chat template。
 
-## 0x03 system prompt 必须一致
+## 3 system prompt 必须一致
 
 system prompt 会显著影响模型行为。比如：
 
@@ -149,7 +149,7 @@ You are a helpful assistant.
 
 如果 BF16 没有 system prompt，而 NVFP4 部署服务默认加了 system prompt，输出差异不能算量化误差。
 
-## 0x04 生成长度必须一致
+## 4 生成长度必须一致
 
 常见参数有两个：
 
@@ -188,7 +188,7 @@ max_new_tokens = 1024
 - 评测脚本是否因为输出太短而判错。
 - 是否不同任务使用了不同输出长度限制。
 
-## 0x05 采样参数必须一致
+## 5 采样参数必须一致
 
 做量化误差对比时，优先使用确定性解码：
 
@@ -236,7 +236,7 @@ repetition_penalty = 1.0
 
 等确定性链路对齐以后，再测试真实线上采样参数。
 
-## 0x06 stop words 和 EOS 必须一致
+## 6 stop words 和 EOS 必须一致
 
 stop words 和 EOS 配置决定模型什么时候停止生成。
 
@@ -259,7 +259,7 @@ stop words 和 EOS 配置决定模型什么时候停止生成。
 
 不同模型家族的停止规则不完全一样。Llama、Qwen、Mistral、ChatGLM、DeepSeek 等模型，都应该按各自 tokenizer 和官方模板确认，而不是复用一套通用 EOS。
 
-## 0x07 batch size 要先从 1 开始
+## 7 batch size 要先从 1 开始
 
 理论上，batch size 不应该改变模型输出。但在真实部署框架里，batch size 可能影响：
 
@@ -289,7 +289,7 @@ stop words 和 EOS 配置决定模型什么时候停止生成。
 
 这类问题容易被误判为量化问题，因为它只在部署服务里出现，而离线单样本测试正常。
 
-## 0x08 context length 必须覆盖真实场景
+## 8 context length 必须覆盖真实场景
 
 context length 是输入上下文长度。短 prompt 正常，不代表长上下文正常。
 
@@ -320,7 +320,7 @@ context length 是输入上下文长度。短 prompt 正常，不代表长上下
 RoPE / position_ids / KV cache / max_seq_len / prompt truncation
 ```
 
-## 0x09 eval 数据和预处理必须一致
+## 9 eval 数据和预处理必须一致
 
 评测数据不只是原始问题，还包括预处理、few-shot 示例、输出抽取和打分逻辑。
 
@@ -367,7 +367,7 @@ A
 - timeout 是否一致。
 - 依赖版本是否一致。
 
-## 0x0A 推荐的第一轮对齐配置
+## 10 推荐的第一轮对齐配置
 
 第一轮不要直接用线上采样配置，也不要直接看开放问答主观感受。建议先用尽量确定的配置：
 
@@ -414,7 +414,7 @@ cross entropy / perplexity
 每一步生成 token 是否分叉
 ```
 
-## 0x0B 一句话总结
+## 11 一句话总结
 
 排查低精度模型掉分时，第一步不是看量化参数，而是先确认评测链路本身可靠：
 
