@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      LLM 低精度部署排查：先确认不是评测问题
+title:      LLM 低精度部署排查LLM 低精度部署排查
 subtitle:   比较 NVFP4 和 BF16 前，先把输入、解码、停止规则和打分脚本固定住
 date:       2026-05-31 23:30:00 +0800
 permalink:  /2026/05/31/llm-quantization-eval-sanity-check/
@@ -14,7 +14,7 @@ tags:
     - Evaluation
 ---
 
-# LLM 低精度部署排查：先确认不是评测问题
+# LLM 低精度部署排查LLM 低精度部署排查
 
 部署 LLM 时，如果发现 NVFP4、INT4、FP8 这类低精度版本相比 BF16 掉分很多，不要一上来就判断是量化算法不行。第一步应该先确认：**这次比较里，唯一变量是不是真的只有精度**。
 
