@@ -1,19 +1,13 @@
 # ctZmx Blog
 
-这里是 `ctzmx.github.io` 的博客源码。
-
-博客主要用来放学习笔记、语法备忘、工具折腾和偶尔的随笔。写法不打算装得很正式，能把问题说明白，能让之后的自己回来查，就算有用。
-
-现在的内容大多是边学边记的手册式记录，比如 Markdown 基础语法这类文章。结构上习惯按 `0x00`、`0x01` 一节一节拆开，正文里也会保留一点吐槽和当时的想法。
-
-## Site
-
-- 地址：<https://ctzmx.github.io/>
-- 主题：学习记录、Markdown、AI、工具实践、随笔
-- 构建：Jekyll + GitHub Pages
-
-## Notes
-
-这个仓库只保留自己的文章和本地图片资源。博客会继续慢慢补内容，先记下来，忘了再查。
-
 POWERED BY AI
+
+WRITED BY AI
+
+RECORDED BY CTZMX
+
+BUILT WITH JEKYLL
+
+DEPLOYED ON GITHUB PAGES
+
+KEPT FOR FUTURE ME
