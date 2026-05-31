@@ -186,6 +186,13 @@ a:hover {
     margin-top: 40px;
 }
 
+.article h2,
+.article h3,
+.content h2,
+.content h3 {
+    scroll-margin-top: 80px;
+}
+
 .article pre {
     overflow-x: auto;
     padding: 16px;
@@ -297,6 +304,13 @@ a:hover {
         align-items: flex-start;
         flex-direction: column;
         gap: 8px;
+    }
+
+    .article h2,
+    .article h3,
+    .content h2,
+    .content h3 {
+        scroll-margin-top: 112px;
     }
 
     .hero,
