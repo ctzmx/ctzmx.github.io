@@ -1,8 +1,8 @@
 # Site settings
 title: ctZmx Blog
 SEOTitle: ctZmx Blog
-description: "Personal notes and writing."
-keyword: "ctzmx, blog"
+description: "学习笔记、折腾记录和一点随笔。"
+keyword: "ctzmx, blog, markdown, notes, ai, jekyll"
 url: "https://ctzmx.github.io"
 baseurl: ""
 email: ctzmx05@gmail.com
@@ -11,7 +11,7 @@ github_username: ctzmx
 # Display settings
 header-img: /img/ct/1%20(218).jpg
 sidebar: true
-sidebar-about-description: "Thinking will not overcome fear but action will."
+sidebar-about-description: "边学边记，忘了就查。"
 sidebar-avatar: /img/ct/avatar_g.jpg
 
 # Build settings
