@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      LLM 低精度部署排查LLM 低精度部署排查
+title:      LLM 低精度部署排查
 subtitle:   比较 NVFP4 和 BF16 前，先把输入、解码、停止规则和打分脚本固定住
 date:       2026-05-31 23:30:00 +0800
 permalink:  /2026/05/31/llm-quantization-eval-sanity-check/
@@ -14,7 +14,7 @@ tags:
     - Evaluation
 ---
 
-# LLM 低精度部署排查LLM 低精度部署排查
+# LLM 低精度部署排查
 
 部署 LLM 时，如果发现 NVFP4、INT4、FP8 这类低精度版本相比 BF16 掉分很多，不要一上来就判断是量化算法不行。第一步应该先确认：**这次比较里，唯一变量是不是真的只有精度**。
 
@@ -45,7 +45,7 @@ tags:
 
 也就是说，部署框架里的 BF16 版本要先和原始 BF16 对齐。否则低精度对比没有可靠基线。
 
-## 1. tokenizer 必须一致
+## 1. tokenizer
 
 tokenizer 决定文本如何被切成 token，以及每个 token 对应什么 id。对模型来说，输入不是原始字符串，而是 token id 序列。
 
@@ -76,7 +76,7 @@ tokenizer 决定文本如何被切成 token，以及每个 token 对应什么 id
 
 这三者应该完全一致。至少在进入模型前，`input_ids`、`attention_mask`、`position_ids` 都应该可解释、可对齐。
 
-## 2. chat template 必须一致
+## 2. chat template
 
 对话模型通常不会直接吃用户输入，而是先经过 chat template 拼成模型训练时熟悉的格式。
 
@@ -123,7 +123,7 @@ Assistant:
 
 很多“量化后效果差”的问题，最后其实是因为 BF16 测试脚本和部署服务使用了不同 chat template。
 
-## 3. system prompt 必须一致
+## 3. system prompt
 
 system prompt 会显著影响模型行为。比如：
 
@@ -149,7 +149,7 @@ You are a helpful assistant.
 
 如果 BF16 没有 system prompt，而 NVFP4 部署服务默认加了 system prompt，输出差异不能算量化误差。
 
-## 4. 生成长度必须一致
+## 4. 生成长度
 
 常见参数有两个：
 
@@ -188,7 +188,7 @@ max_new_tokens = 1024
 - 评测脚本是否因为输出太短而判错。
 - 是否不同任务使用了不同输出长度限制。
 
-## 5. 采样参数必须一致
+## 5. 采样参数
 
 做量化误差对比时，优先使用确定性解码：
 
@@ -236,7 +236,7 @@ repetition_penalty = 1.0
 
 等确定性链路对齐以后，再测试真实线上采样参数。
 
-## 6. stop words 和 EOS 必须一致
+## 6. stop words 和 EOS
 
 stop words 和 EOS 配置决定模型什么时候停止生成。
 
@@ -320,7 +320,7 @@ context length 是输入上下文长度。短 prompt 正常，不代表长上下
 RoPE / position_ids / KV cache / max_seq_len / prompt truncation
 ```
 
-## 9. eval 数据和预处理必须一致
+## 9. eval 数据和预处理
 
 评测数据不只是原始问题，还包括预处理、few-shot 示例、输出抽取和打分逻辑。
 
