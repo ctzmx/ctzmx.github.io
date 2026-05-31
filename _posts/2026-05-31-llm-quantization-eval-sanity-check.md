@@ -2,7 +2,7 @@
 layout:     post
 title:      LLM 低精度部署排查：先确认不是评测问题
 subtitle:   比较 NVFP4 和 BF16 前，先把输入、解码、停止规则和打分脚本固定住
-date:       2026-05-31 23:50:00 +0800
+date:       2026-05-31 23:30:00 +0800
 permalink:  /2026/05/31/llm-quantization-eval-sanity-check/
 author:     ctzmx
 header-img: /img/ct/1%20(218).jpg
