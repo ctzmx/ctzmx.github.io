@@ -201,6 +201,39 @@ a:hover {
     color: #edf3f8;
 }
 
+.article table,
+.content table {
+    width: 100%;
+    margin: 24px 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.article th,
+.article td,
+.content th,
+.content td {
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    overflow-wrap: anywhere;
+    vertical-align: top;
+}
+
+.article th,
+.content th {
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 700;
+    text-align: left;
+}
+
+.article tbody tr:nth-child(even),
+.content tbody tr:nth-child(even) {
+    background: #fbfcfd;
+}
+
 .article code {
     font-family: Consolas, "SFMono-Regular", Menlo, monospace;
 }
@@ -322,6 +355,18 @@ a:hover {
     .tag-post,
     .post-nav {
         flex-direction: column;
+    }
+
+    .article table,
+    .content table {
+        font-size: 14px;
+    }
+
+    .article th,
+    .article td,
+    .content th,
+    .content td {
+        padding: 8px;
     }
 }
 
