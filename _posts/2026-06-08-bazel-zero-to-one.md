@@ -2,7 +2,7 @@
 layout:     post
 title:      Bazel 从零入门：看懂 BUILD、load 和项目里的构建关系
 subtitle:   从 Bazel 和 gcc 的区别讲起，用一个 C++ 小例子串起目标、依赖、测试、label、.bzl 和常用命令
-date:       2026-06-08 01:20:00 +0800
+date:       2026-06-08 00:30:00 +0800
 permalink:  /2026/06/08/bazel-zero-to-one/
 author:     ctzmx
 header-img: /img/ct/1%20(218).jpg
