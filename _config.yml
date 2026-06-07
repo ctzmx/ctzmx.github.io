@@ -5,6 +5,7 @@ description: "学习笔记、折腾记录和一点随笔。"
 keyword: "ctzmx, blog, markdown, notes, ai, jekyll"
 url: "https://ctzmx.github.io"
 baseurl: ""
+timezone: Asia/Shanghai
 email: ctzmx05@gmail.com
 github_username: ctzmx
 
