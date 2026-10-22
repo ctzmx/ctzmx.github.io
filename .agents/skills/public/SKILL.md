@@ -12,7 +12,7 @@ description: 为 ctzmx.github.io 博客撰写、整理或准备发布文章时�
 - 文章放在仓库的 `_posts/`，保存为 UTF-8 Markdown。
 - 新文章命名为 `YYYY-MM-DD-english-slug.md`，slug 使用小写英文和短横线。
 - 文件名日期、`date` 的日期部分和 `permalink` 的年月日保持一致。时间使用站点时区 `Asia/Shanghai`（`+0800`），按实际发布时间填写，不照抄范例日期。
-- 使用下面的 front matter 字段顺序。`layout: post`、`author: ctzmx`、`catalog: true` 为默认值；背景图默认沿用现有资源，也可以换成仓库内实际存在的图片。
+- 使用下面的 front matter 字段顺序。`layout: post`、`author: ctzmx`、`catalog: true` 由 `_config.yml` 的文章默认值提供，背景图继承站点配置；只有需要覆盖时才在文章中声明这些字段。
 - `title` 表达文章主题，`subtitle` 用一句话补充范围、价值或核心判断，不重复标题。标题和副标题使用 YAML 双引号；内容中的双引号和反斜杠需转义。
 - 标签使用 YAML 列表，优先复用现有文章的标签与大小写，仅添加与内容相关的标签。
 - 已发布文章仅整理格式时，保留原有发布日期、作者和永久链接，避免改变历史信息或破坏链接。
@@ -23,20 +23,14 @@ description: 为 ctzmx.github.io 博客撰写、整理或准备发布文章时�
 
 ````markdown
 ---
-layout:     post
 title:      "<文章标题>"
 subtitle:   "<一句话说明文章范围或核心判断>"
 date:       <YYYY-MM-DD> <HH:MM:SS> +0800
 permalink:  /<YYYY>/<MM>/<DD>/<english-slug>/
-author:     ctzmx
-header-img: /img/ct/1%20(218).jpg
-catalog: true
 tags:
     - <主题标签>
     - <相关技术标签>
 ---
-
-# <与 title 一致的文章标题>
 
 <简要交代读者、问题和适用范围，给出核心结论或阅读目标。涉及版本、平台或时效时在这里说明。>
 
@@ -73,7 +67,7 @@ tags:
 
 ## 正文排版约定
 
-- 沿用近期文章格式，在正文开头保留一个与 `title` 一致的一级标题；后续章节使用 `##`，子章节使用 `###`，不跳级。页面布局会另行显示标题，此处保留当前文章源文件约定。
+- 文章标题由布局从 `title` 输出，正文从导语开始，不再重复一级标题。章节使用 `##`，子章节使用 `###`，不跳级。讲解 Markdown 标题语法时，可保留必要的示例标题。
 - 正文章节较多或存在步骤顺序时使用 `## 1. …`、`## 2. …`；短文可以不编号，同篇保持一致。小结与参考资料可以不编号。
 - 开头先说明问题和关键判断；教程可以用学习目标开场，评估与排查类文章优先给出结论。章节名称服务于实际主题，不要求每篇都套用示意标题。
 - 段落、标题、列表、表格、代码块之间留空行。并列要点使用 `-`，有先后关系的步骤使用有序列表，比较信息适合用 Markdown 表格。
@@ -84,4 +78,4 @@ tags:
 
 ## 模板依据
 
-以仓库近期文章为主提炼：`_posts/2026-06-08-bazel-zero-to-one.md`、`_posts/2026-06-02-coop-game-network-server-guide.md`、`_posts/2026-05-31-llm-quantization-eval-sanity-check.md`。元信息、正文一级标题、分节与代码示例沿用它们的共同格式；日期与目录行为分别对应 `_config.yml` 和 `_layouts/post.html`。
+以仓库近期文章为主提炼：`_posts/2026-06-08-bazel-zero-to-one.md`、`_posts/2026-06-02-coop-game-network-server-guide.md`、`_posts/2026-05-31-llm-quantization-eval-sanity-check.md`。保留它们的元信息、分节与代码示例约定，文章标题统一交给布局输出；日期、默认值与目录行为分别对应 `_config.yml` 和 `_layouts/post.html`。
