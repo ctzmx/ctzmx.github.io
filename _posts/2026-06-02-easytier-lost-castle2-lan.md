@@ -1,19 +1,14 @@
 ---
-layout:     post
 title:      EasyTier 组虚拟局域网联机《失落城堡2》的可行性评估
 subtitle:   如果游戏真的支持 LAN Co-op，EasyTier 值得一试；如果实际只走官方服务器，它不能替代专用服
 date:       2026-06-02 23:40:00 +0800
 permalink:  /2026/06/02/easytier-lost-castle2-lan/
-author:     ctzmx
-header-img: /img/ct/1%20(218).jpg
-catalog: true
 tags:
     - Games
     - Network
     - EasyTier
 ---
 
-# EasyTier 组虚拟局域网联机《失落城堡2》的可行性评估
 
 时间：2026-06-02
 

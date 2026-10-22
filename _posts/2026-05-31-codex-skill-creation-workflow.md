@@ -1,19 +1,14 @@
 ---
-layout:     post
 title:      Codex Skill 制作流程：从想法到可复用能力
 subtitle:   一个 skill 不只是 prompt，而是一套可被触发、可验证、可迭代的工作流
 date:       2026-05-31 01:06:00 +0800
 permalink:  /2026/05/31/codex-skill-creation-workflow/
-author:     ctzmx
-header-img: /img/ct/1%20(218).jpg
-catalog: true
 tags:
     - Codex
     - Skill
     - AI
 ---
 
-# Codex Skill 制作流程：从想法到可复用能力
 
 ## 0. Skill 是什么
 

@@ -1,26 +1,21 @@
 ---
 layout: default
+home: true
 description: "边学边记，忘了就查。"
 ---
 
-<header class="hero hero-home" style="background-image: linear-gradient(135deg, rgba(18, 24, 38, 0.78), rgba(44, 63, 82, 0.54)), url('{{ site.header-img | relative_url }}')">
-    <div class="container narrow">
-        <p class="eyebrow">ctzmx.github.io</p>
-        <h1>{{ site.title }}</h1>
-        <p class="hero-copy">{{ page.description }}</p>
-    </div>
-</header>
+{% include hero.html %}
 
 <section class="container post-list">
     {% for post in site.posts %}
     <article class="post-preview">
-        <a href="{{ post.url | prepend: site.baseurl }}">
+        <a href="{{ post.url | relative_url }}">
             <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
-            <h2>{{ post.title }}</h2>
+            <h2>{{ post.title | escape }}</h2>
             {% if post.subtitle %}
-            <p class="subtitle">{{ post.subtitle }}</p>
+            <p class="subtitle">{{ post.subtitle | escape }}</p>
             {% endif %}
-            <p>{{ post.content | strip_html | truncate: 180 }}</p>
+            <p>{{ post.excerpt | strip_html | normalize_whitespace | truncate: 180 | escape_once }}</p>
         </a>
     </article>
     {% endfor %}

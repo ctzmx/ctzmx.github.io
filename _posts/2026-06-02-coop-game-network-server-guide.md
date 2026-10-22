@@ -1,19 +1,14 @@
 ---
-layout:     post
 title:      合作游戏联机卡顿排查：失落城堡2、土豆兄弟与饥荒联机版
 subtitle:   不能自建服时先排区域、路由和串流；能自建服时把服务器放到离玩家最近的稳定网络上
 date:       2026-06-02 01:30:00 +0800
 permalink:  /2026/06/02/coop-game-network-server-guide/
-author:     ctzmx
-header-img: /img/ct/1%20(218).jpg
-catalog: true
 tags:
     - Games
     - Network
     - Server
 ---
 
-# 合作游戏联机卡顿排查：失落城堡2、土豆兄弟与饥荒联机版
 
 这篇记录只讨论 PC / Steam 版本，时间点是 2026-06-02。先给结论：
 

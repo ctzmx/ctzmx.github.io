@@ -1,17 +1,13 @@
 ---
-layout:     post
 title:      HELLO WORLD
 subtitle:   🙈🙊🙉
 date:       2020-09-06
 author:     张没有
 header-img: /img/ct/1%20(10).jpg
-catalog: true
 tags:
     - 随笔
 ---
 
-
-# hello world
 在博客上第一次写东西
 
 仪式感这种东西就是很微妙，虽然没什么实际用处，但就是想要满满的仪式感，就像我开个博客非要先整个 `HELLO WORLD` 出来一样

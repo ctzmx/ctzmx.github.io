@@ -1,0 +1,26 @@
+{% assign hero_image = page.header-img | default: site.header-img %}
+{% assign hero_title = page.title | default: site.title %}
+{% assign hero_copy = page.subtitle | default: page.description %}
+{% assign hero_eyebrow = site.title %}
+{% if page.layout == 'post' %}
+    {% assign hero_eyebrow = page.date | date: "%Y-%m-%d" %}
+{% elsif page.home %}
+    {% assign hero_eyebrow = site.url | remove: 'https://' | remove: 'http://' %}
+{% endif %}
+<header class="hero{% if page.home %} hero-home{% endif %}" {% if hero_image %}style="--hero-image: url('{{ hero_image | relative_url | escape }}')"{% endif %}>
+    <div class="container narrow">
+        <p class="eyebrow">{{ hero_eyebrow | escape }}</p>
+        <h1>{{ hero_title | escape }}</h1>
+        {% if hero_copy %}
+        <p class="hero-copy">{{ hero_copy | escape }}</p>
+        {% endif %}
+        {% if page.layout == 'post' and page.tags %}
+        <div class="tag-row">
+            {% for tag in page.tags %}
+            {% assign tag_fragment = tag | uri_escape %}
+            <a href="{{ '/tags/' | relative_url }}#{{ tag_fragment | escape }}">{{ tag | escape }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</header>

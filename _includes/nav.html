@@ -1,8 +1,8 @@
 <nav class="site-nav">
-    <a class="brand" href="{{ '/' | prepend: site.baseurl }}">{{ site.title }}</a>
+    <a class="brand" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
     <div class="nav-links">
-        <a href="{{ '/' | prepend: site.baseurl }}">Home</a>
-        <a href="{{ '/tags/' | prepend: site.baseurl }}">Tags</a>
-        <a href="{{ '/about/' | prepend: site.baseurl }}">About</a>
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/tags/' | relative_url }}">Tags</a>
+        <a href="{{ '/about/' | relative_url }}">About</a>
     </div>
 </nav>
