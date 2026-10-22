@@ -1,8 +1,8 @@
 # Site settings
-title: ctZmx Blog
-SEOTitle: ctZmx Blog
+title: ctzmx Blog
+SEOTitle: ctzmx Blog
 description: "学习笔记、折腾记录和一点随笔。"
-keyword: "ctzmx, blog, markdown, notes, ai, jekyll"
+keyword: "ctzmx, blog, markdown, notes, ai"
 url: "https://ctzmx.github.io"
 baseurl: ""
 timezone: Asia/Shanghai

@@ -1,4 +1,4 @@
-# ctZmx Blog
+# ctzmx Blog
 
 POWERED BY AI
 
