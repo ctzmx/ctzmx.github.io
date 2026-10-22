@@ -7,14 +7,16 @@ permalink: /tags/
 
 {% include hero.html %}
 
+{% assign sorted_tags = site.tags | sort %}
+
 <section class="container content">
     <div class="tag-cloud">
-        {% for tag in site.tags %}
+        {% for tag in sorted_tags %}
         <a href="#{{ tag[0] | uri_escape | escape }}">{{ tag[0] | escape }}</a>
         {% endfor %}
     </div>
 
-    {% for tag in site.tags %}
+    {% for tag in sorted_tags %}
     <section class="tag-section">
         <h2 id="{{ tag[0] | escape }}">{{ tag[0] | escape }}</h2>
         {% for post in tag[1] %}
