@@ -4,10 +4,7 @@ subtitle:   比较 NVFP4 和 BF16 前，先把输入、解码、停止规则和�
 date:       2026-05-31 23:30:00 +0800
 permalink:  /2026/05/31/llm-quantization-eval-sanity-check/
 tags:
-    - LLM
-    - Quantization
-    - Deployment
-    - Evaluation
+    - LLM Deployment
 ---
 
 

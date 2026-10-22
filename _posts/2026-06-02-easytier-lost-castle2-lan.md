@@ -4,9 +4,7 @@ subtitle:   如果游戏真的支持 LAN Co-op，EasyTier 值得一试；如果�
 date:       2026-06-02 23:40:00 +0800
 permalink:  /2026/06/02/easytier-lost-castle2-lan/
 tags:
-    - Games
-    - Network
-    - EasyTier
+    - Others
 ---
 
 

@@ -4,9 +4,7 @@ subtitle:   从 Bazel 和 gcc 的区别讲起，用一个 C++ 小例子串起目
 date:       2026-06-08 00:30:00 +0800
 permalink:  /2026/06/08/bazel-zero-to-one/
 tags:
-    - Bazel
-    - Build
-    - Cpp
+    - Others
 ---
 
 

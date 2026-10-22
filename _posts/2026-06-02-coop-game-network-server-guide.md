@@ -4,9 +4,7 @@ subtitle:   不能自建服时先排区域、路由和串流；能自建服时�
 date:       2026-06-02 01:30:00 +0800
 permalink:  /2026/06/02/coop-game-network-server-guide/
 tags:
-    - Games
-    - Network
-    - Server
+    - Others
 ---
 
 

@@ -5,7 +5,7 @@ date:       2020-09-06
 author:     张没有
 header-img: /img/ct/1%20(10).jpg
 tags:
-    - 随笔
+    - Others
 ---
 
 在博客上第一次写东西

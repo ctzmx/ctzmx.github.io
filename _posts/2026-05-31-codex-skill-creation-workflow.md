@@ -4,9 +4,7 @@ subtitle:   一个 skill 不只是 prompt，而是一套可被触发、可验证
 date:       2026-05-31 01:06:00 +0800
 permalink:  /2026/05/31/codex-skill-creation-workflow/
 tags:
-    - Codex
-    - Skill
-    - AI
+    - Others
 ---
 
 
