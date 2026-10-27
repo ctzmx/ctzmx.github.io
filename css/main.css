@@ -249,6 +249,14 @@ a:hover {
     font-family: Consolas, "SFMono-Regular", Menlo, monospace;
 }
 
+.article :not(pre) > code {
+    padding: 2px 5px;
+    border-radius: 4px;
+    background: #f0f1f3;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
 .post-list {
     display: grid;
     gap: 18px;
