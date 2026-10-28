@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="686" viewBox="0 0 720 686" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="419.222" viewBox="0 0 720 686" role="img" aria-labelledby="title desc">
 <title id="title">连续加 100 次 1：在哪一步舍入？</title>
 <desc id="desc">从 2048 开始，逐次舍入到 FP16 的结果一直为 2048；FP32 累加与精确参考一致，为 2048+n，最终 2148 转成 FP16 仍为 2148。这是逐次累加实验，不是 GPU 并行归约轨迹。</desc>
 <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="context-stroke"/></marker></defs>

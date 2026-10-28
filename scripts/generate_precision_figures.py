@@ -9,6 +9,8 @@ from pathlib import Path
 
 
 OUT = Path(__file__).resolve().parents[1] / "img/posts/numerical-precision"
+# Keep diagram labels close to the article's 16px body text at desktop size.
+DISPLAY_WIDTH = 440
 INK = "#172b45"
 MUTED = "#52657c"
 LINE = "#a8b6c7"
@@ -22,7 +24,8 @@ class Figure:
     def __init__(self, height, title, description):
         self.parts = [
             '<?xml version="1.0" encoding="UTF-8"?>',
-            f'<svg xmlns="http://www.w3.org/2000/svg" width="720" height="{height}" '
+            f'<svg xmlns="http://www.w3.org/2000/svg" width="{DISPLAY_WIDTH}" '
+            f'height="{height * DISPLAY_WIDTH / 720:g}" '
             f'viewBox="0 0 720 {height}" role="img" aria-labelledby="title desc">',
             f'<title id="title">{escape(title)}</title>',
             f'<desc id="desc">{escape(description)}</desc>',
