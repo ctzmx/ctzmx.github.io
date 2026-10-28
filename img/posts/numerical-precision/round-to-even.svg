@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="486" viewBox="0 0 720 486" role="img" aria-labelledby="title desc">
+<title id="title">平局取偶数：有时向下，有时向上</title>
+<desc id="desc">FP16 的 2048、2050、2052 可精确表示，有效数末位依次为 0、1、0。2049 向 2048 舍入，2051 向 2052 舍入。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="context-stroke"/></marker></defs>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC","PingFang SC",sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect width="720" height="486" rx="18" fill="#f7f9fc"/>
+<text x="36" y="52" font-size="32" fill="#172b45" text-anchor="start" font-weight="700">平局取偶数：有时向下，有时向上</text>
+<text x="36" y="96" font-size="25" fill="#52657c" text-anchor="start" font-weight="400">此处间隔为 2；2049 与 2051 都在正中间</text>
+<line x1="65" y1="240" x2="655" y2="240" stroke="#52657c" stroke-width="2"/>
+<circle cx="90" cy="240" r="8" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<text x="90" y="285" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">2048</text>
+<text x="90" y="331" font-size="26" fill="#52657c" text-anchor="middle" font-weight="400">末位 0</text>
+<circle cx="225" cy="240" r="8" fill="white" stroke="#a45908" stroke-width="3"/>
+<text x="225" y="285" font-size="28" fill="#a45908" text-anchor="middle" font-weight="700">2049</text>
+<circle cx="360" cy="240" r="8" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<text x="360" y="285" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">2050</text>
+<text x="360" y="331" font-size="26" fill="#52657c" text-anchor="middle" font-weight="400">末位 1</text>
+<circle cx="495" cy="240" r="8" fill="white" stroke="#a45908" stroke-width="3"/>
+<text x="495" y="285" font-size="28" fill="#a45908" text-anchor="middle" font-weight="700">2051</text>
+<circle cx="630" cy="240" r="8" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<text x="630" y="285" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">2052</text>
+<text x="630" y="331" font-size="26" fill="#52657c" text-anchor="middle" font-weight="400">末位 0</text>
+<path d="M225.0,225 L225.0,151 L90.0,151 L90.0,222" fill="none" stroke="#a45908" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M495.0,225 L495.0,151 L630.0,151 L630.0,222" fill="none" stroke="#a45908" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="36" y="365" width="648" height="86" rx="10" fill="#ffffff" stroke="none"/>
+<text x="56" y="400" font-size="27" fill="#172b45" text-anchor="start" font-weight="700">“偶”看保留的二进制有效数末位</text>
+<text x="56" y="435" font-size="25" fill="#52657c" text-anchor="start" font-weight="400">末位为 0 的候选胜出；不是一律向下取整</text>
+</svg>

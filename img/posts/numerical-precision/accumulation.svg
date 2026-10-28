@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="686" viewBox="0 0 720 686" role="img" aria-labelledby="title desc">
+<title id="title">连续加 100 次 1：在哪一步舍入？</title>
+<desc id="desc">从 2048 开始，逐次舍入到 FP16 的结果一直为 2048；FP32 累加与精确参考一致，为 2048+n，最终 2148 转成 FP16 仍为 2148。这是逐次累加实验，不是 GPU 并行归约轨迹。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="context-stroke"/></marker></defs>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC","PingFang SC",sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect width="720" height="686" rx="18" fill="#f7f9fc"/>
+<text x="36" y="52" font-size="32" fill="#172b45" text-anchor="start" font-weight="700">连续加 100 次 1：在哪一步舍入？</text>
+<text x="36" y="99" font-size="25" fill="#52657c" text-anchor="start" font-weight="400">起点 2048；横轴 n 表示已经相加的次数</text>
+<line x1="114" y1="200" x2="114" y2="460" stroke="#e0e6ee" stroke-width="1"/>
+<text x="114" y="498" font-size="25" fill="#52657c" text-anchor="middle" font-weight="400">0</text>
+<line x1="217.6" y1="200" x2="217.6" y2="460" stroke="#e0e6ee" stroke-width="1"/>
+<text x="217.6" y="498" font-size="25" fill="#52657c" text-anchor="middle" font-weight="400">20</text>
+<line x1="321.2" y1="200" x2="321.2" y2="460" stroke="#e0e6ee" stroke-width="1"/>
+<text x="321.2" y="498" font-size="25" fill="#52657c" text-anchor="middle" font-weight="400">40</text>
+<line x1="424.8" y1="200" x2="424.8" y2="460" stroke="#e0e6ee" stroke-width="1"/>
+<text x="424.8" y="498" font-size="25" fill="#52657c" text-anchor="middle" font-weight="400">60</text>
+<line x1="528.4" y1="200" x2="528.4" y2="460" stroke="#e0e6ee" stroke-width="1"/>
+<text x="528.4" y="498" font-size="25" fill="#52657c" text-anchor="middle" font-weight="400">80</text>
+<line x1="632" y1="200" x2="632" y2="460" stroke="#e0e6ee" stroke-width="1"/>
+<text x="632" y="498" font-size="25" fill="#52657c" text-anchor="middle" font-weight="400">100</text>
+<line x1="114" y1="460" x2="632" y2="460" stroke="#dce3ed" stroke-width="1"/>
+<text x="99" y="469" font-size="25" fill="#52657c" text-anchor="end" font-weight="400">2048</text>
+<line x1="114" y1="330" x2="632" y2="330" stroke="#dce3ed" stroke-width="1"/>
+<text x="99" y="339" font-size="25" fill="#52657c" text-anchor="end" font-weight="400">2098</text>
+<line x1="114" y1="200" x2="632" y2="200" stroke="#dce3ed" stroke-width="1"/>
+<text x="99" y="209" font-size="25" fill="#52657c" text-anchor="end" font-weight="400">2148</text>
+<line x1="114" y1="190" x2="114" y2="460" stroke="#52657c" stroke-width="2"/>
+<line x1="114" y1="460" x2="644" y2="460" stroke="#52657c" stroke-width="2"/>
+<text x="36" y="165" font-size="27" fill="#087f78" text-anchor="start" font-weight="700">FP32 累加 = 精确参考</text>
+<path d="M114,460 L119.18,457.4 L124.36,454.8 L129.54,452.2 L134.72,449.6 L139.9,447 L145.08,444.4 L150.26,441.8 L155.44,439.2 L160.62,436.6 L165.8,434 L170.98,431.4 L176.16,428.8 L181.34,426.2 L186.52,423.6 L191.7,421 L196.88,418.4 L202.06,415.8 L207.24,413.2 L212.42,410.6 L217.6,408 L222.78,405.4 L227.96,402.8 L233.14,400.2 L238.32,397.6 L243.5,395 L248.68,392.4 L253.86,389.8 L259.04,387.2 L264.22,384.6 L269.4,382 L274.58,379.4 L279.76,376.8 L284.94,374.2 L290.12,371.6 L295.3,369 L300.48,366.4 L305.66,363.8 L310.84,361.2 L316.02,358.6 L321.2,356 L326.38,353.4 L331.56,350.8 L336.74,348.2 L341.92,345.6 L347.1,343 L352.28,340.4 L357.46,337.8 L362.64,335.2 L367.82,332.6 L373,330 L378.18,327.4 L383.36,324.8 L388.54,322.2 L393.72,319.6 L398.9,317 L404.08,314.4 L409.26,311.8 L414.44,309.2 L419.62,306.6 L424.8,304 L429.98,301.4 L435.16,298.8 L440.34,296.2 L445.52,293.6 L450.7,291 L455.88,288.4 L461.06,285.8 L466.24,283.2 L471.42,280.6 L476.6,278 L481.78,275.4 L486.96,272.8 L492.14,270.2 L497.32,267.6 L502.5,265 L507.68,262.4 L512.86,259.8 L518.04,257.2 L523.22,254.6 L528.4,252 L533.58,249.4 L538.76,246.8 L543.94,244.2 L549.12,241.6 L554.3,239 L559.48,236.4 L564.66,233.8 L569.84,231.2 L575.02,228.6 L580.2,226 L585.38,223.4 L590.56,220.8 L595.74,218.2 L600.92,215.6 L606.1,213 L611.28,210.4 L616.46,207.8 L621.64,205.2 L626.82,202.6 L632,200" fill="none" stroke="#087f78" stroke-width="4"/>
+<line x1="114" y1="460" x2="632" y2="460" stroke="#245bcc" stroke-width="4" stroke-dasharray="11 7"/>
+<text x="380" y="432" font-size="26" fill="#245bcc" text-anchor="start" font-weight="700">每步 FP16：2048</text>
+<circle cx="632" cy="200" r="7" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<text x="622" y="240" font-size="28" fill="#087f78" text-anchor="end" font-weight="700">2148</text>
+<text x="373" y="537" font-size="26" fill="#52657c" text-anchor="middle" font-weight="400">相加次数 n</text>
+<rect x="36" y="570" width="648" height="80" rx="10" fill="#ffffff" stroke="none"/>
+<text x="56" y="604" font-size="27" fill="#172b45" text-anchor="start" font-weight="700">只在最后转 FP16：2148 → 2148</text>
+<text x="56" y="638" font-size="25" fill="#52657c" text-anchor="start" font-weight="400">FP32 保留中间增量；本例终点可精确写回</text>
+</svg>

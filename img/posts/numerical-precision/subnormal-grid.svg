@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="652" viewBox="0 0 720 652" role="img" aria-labelledby="title desc">
+<title id="title">零附近，还有非正规数刻度</title>
+<desc id="desc">令 h=2^-24。线性数轴上 1e-8 位于约 0.168h，舍入至 0；1e-7 位于约 1.678h，舍入至 2h。h 本身精确保留。最小正规数为 1024h，不在图中。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="context-stroke"/></marker></defs>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC","PingFang SC",sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect width="720" height="652" rx="18" fill="#f7f9fc"/>
+<text x="36" y="52" font-size="32" fill="#172b45" text-anchor="start" font-weight="700">零附近，还有非正规数刻度</text>
+<text x="36" y="94" font-size="27" fill="#52657c" text-anchor="start" font-weight="400">h = 2⁻²⁴ ≈ 5.96046448 × 10⁻⁸</text>
+<rect x="36" y="122" width="648" height="116" rx="10" fill="#ffffff" stroke="none"/>
+<text x="56" y="163" font-size="28" fill="#a45908" text-anchor="start" font-weight="700">1e−8 ≈ 0.168h  →  0</text>
+<text x="56" y="211" font-size="28" fill="#7551b5" text-anchor="start" font-weight="700">1e−7 ≈ 1.678h  →  2h</text>
+<line x1="60" y1="338" x2="660" y2="338" stroke="#52657c" stroke-width="2"/>
+<line x1="173.333" y1="283" x2="173.333" y2="365" stroke="#a8b6c7" stroke-width="2" stroke-dasharray="5 5"/>
+<text x="173.333" y="409" font-size="25" fill="#52657c" text-anchor="middle" font-weight="400">h/2</text>
+<circle cx="80" cy="338" r="7" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<text x="80" y="379" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">0</text>
+<circle cx="266.667" cy="338" r="7" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<text x="266.667" y="379" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">h</text>
+<circle cx="453.333" cy="338" r="7" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<text x="453.333" y="379" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">2h</text>
+<circle cx="640" cy="338" r="7" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<text x="640" y="379" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">3h</text>
+<circle cx="111.317" cy="338" r="7" fill="white" stroke="#a45908" stroke-width="3"/>
+<path d="M111.317,323 L111.317,273 L80,273 L80,321" fill="none" stroke="#a45908" stroke-width="3" marker-end="url(#arrow)"/>
+<circle cx="393.175" cy="338" r="7" fill="white" stroke="#7551b5" stroke-width="3"/>
+<path d="M393.175,323 L393.175,273 L453.333,273 L453.333,321" fill="none" stroke="#7551b5" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="36" y="468" font-size="28" fill="#087f78" text-anchor="start" font-weight="700">h = 2⁻²⁴ 本身精确保留</text>
+<text x="36" y="513" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">最小正规数 = 1024h（当前窗口外）</text>
+<text x="36" y="572" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">横轴为线性刻度，实心点可精确表示</text>
+<text x="36" y="614" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">空心点为待转换输入，箭头为舍入方向</text>
+</svg>

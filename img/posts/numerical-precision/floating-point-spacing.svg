@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="680" viewBox="0 0 720 680" role="img" aria-labelledby="title desc">
+<title id="title">同一数轴上，FP16 的刻度更密</title>
+<desc id="desc">两个局部线性窗口。1 到 1.015625 内 FP16 有 17 个点、BF16 有 3 个点；1024 到 1040 内也分别有 17 个点和 3 个点。不同窗口的单位跨度不同。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="context-stroke"/></marker></defs>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC","PingFang SC",sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect width="720" height="680" rx="18" fill="#f7f9fc"/>
+<text x="36" y="52" font-size="32" fill="#172b45" text-anchor="start" font-weight="700">同一数轴上，FP16 的刻度更密</text>
+<text x="36" y="94" font-size="25" fill="#52657c" text-anchor="start" font-weight="400">实心点 = 可表示值；空隙内并非都能表示</text>
+<rect x="24" y="122" width="672" height="240" rx="12" fill="#ffffff" stroke="none"/>
+<text x="44" y="160" font-size="28" fill="#172b45" text-anchor="start" font-weight="700">窗口 A：1 附近</text>
+<text x="44" y="223" font-size="27" fill="#245bcc" text-anchor="start" font-weight="700">FP16</text>
+<line x1="152" y1="214" x2="644" y2="214" stroke="#a8b6c7" stroke-width="2"/>
+<circle cx="152" cy="214" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="182.75" cy="214" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="213.5" cy="214" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="244.25" cy="214" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="275" cy="214" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="305.75" cy="214" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="336.5" cy="214" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="367.25" cy="214" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="398" cy="214" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="428.75" cy="214" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="459.5" cy="214" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="490.25" cy="214" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="521" cy="214" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="551.75" cy="214" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="582.5" cy="214" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="613.25" cy="214" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="644" cy="214" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<text x="44" y="289" font-size="27" fill="#087f78" text-anchor="start" font-weight="700">BF16</text>
+<line x1="152" y1="280" x2="644" y2="280" stroke="#a8b6c7" stroke-width="2"/>
+<circle cx="152" cy="280" r="7" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<circle cx="398" cy="280" r="7" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<circle cx="644" cy="280" r="7" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<text x="152" y="327" font-size="24" fill="#52657c" text-anchor="middle" font-weight="400">1</text>
+<text x="398" y="327" font-size="24" fill="#52657c" text-anchor="middle" font-weight="400">1.0078125</text>
+<text x="644" y="327" font-size="24" fill="#52657c" text-anchor="middle" font-weight="400">1.015625</text>
+<text x="680" y="160" font-size="25" fill="#52657c" text-anchor="end" font-weight="400">间隔比 1 : 8</text>
+<rect x="24" y="382" width="672" height="240" rx="12" fill="#ffffff" stroke="none"/>
+<text x="44" y="420" font-size="28" fill="#172b45" text-anchor="start" font-weight="700">窗口 B：1024 附近</text>
+<text x="44" y="483" font-size="27" fill="#245bcc" text-anchor="start" font-weight="700">FP16</text>
+<line x1="152" y1="474" x2="644" y2="474" stroke="#a8b6c7" stroke-width="2"/>
+<circle cx="152" cy="474" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="182.75" cy="474" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="213.5" cy="474" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="244.25" cy="474" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="275" cy="474" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="305.75" cy="474" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="336.5" cy="474" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="367.25" cy="474" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="398" cy="474" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="428.75" cy="474" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="459.5" cy="474" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="490.25" cy="474" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="521" cy="474" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="551.75" cy="474" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="582.5" cy="474" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="613.25" cy="474" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="644" cy="474" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<text x="44" y="549" font-size="27" fill="#087f78" text-anchor="start" font-weight="700">BF16</text>
+<line x1="152" y1="540" x2="644" y2="540" stroke="#a8b6c7" stroke-width="2"/>
+<circle cx="152" cy="540" r="7" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<circle cx="398" cy="540" r="7" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<circle cx="644" cy="540" r="7" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<text x="152" y="587" font-size="24" fill="#52657c" text-anchor="middle" font-weight="400">1024</text>
+<text x="398" y="587" font-size="24" fill="#52657c" text-anchor="middle" font-weight="400">1032</text>
+<text x="644" y="587" font-size="24" fill="#52657c" text-anchor="middle" font-weight="400">1040</text>
+<text x="680" y="420" font-size="25" fill="#52657c" text-anchor="end" font-weight="400">间隔比 1 : 8</text>
+<text x="36" y="661" font-size="25" fill="#52657c" text-anchor="start" font-weight="400">A 间隔：1/1024、1/128；B 间隔：1、8</text>
+</svg>

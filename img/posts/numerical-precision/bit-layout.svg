@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="730" viewBox="0 0 720 730" role="img" aria-labelledby="title desc">
+<title id="title">同一个 6.5，两种 16 位编码</title>
+<desc id="desc">FP16 与 BF16 都精确表示 6.5。FP16 为 0|10001|1010000000，BF16 为 0|10000001|1010000。隐含的前导 1 不在存储位格中。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="context-stroke"/></marker></defs>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC","PingFang SC",sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect width="720" height="730" rx="18" fill="#f7f9fc"/>
+<text x="36" y="52" font-size="32" fill="#172b45" text-anchor="start" font-weight="700">同一个 6.5，两种 16 位编码</text>
+<text x="36" y="94" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">每格 1 bit；两行都没有舍入误差</text>
+<rect x="36" y="119" width="22" height="22" rx="4" fill="#a45908" stroke="none"/>
+<text x="70" y="139" font-size="26" fill="#172b45" text-anchor="start" font-weight="400">符号</text>
+<rect x="220" y="119" width="22" height="22" rx="4" fill="#245bcc" stroke="none"/>
+<text x="254" y="139" font-size="26" fill="#172b45" text-anchor="start" font-weight="400">指数</text>
+<rect x="404" y="119" width="22" height="22" rx="4" fill="#087f78" stroke="none"/>
+<text x="438" y="139" font-size="26" fill="#172b45" text-anchor="start" font-weight="400">小数</text>
+<text x="36" y="190" font-size="29" fill="#172b45" text-anchor="start" font-weight="700">FP16</text>
+<text x="684" y="190" font-size="26" fill="#52657c" text-anchor="end" font-weight="400">1 / 5 / 10</text>
+<rect x="40" y="218" width="40" height="52" rx="3" fill="#fff0d9" stroke="#ffffff"/>
+<text x="60" y="254" font-size="28" fill="#a45908" text-anchor="middle" font-weight="700">0</text>
+<rect x="80" y="218" width="40" height="52" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<text x="100" y="254" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">1</text>
+<rect x="120" y="218" width="40" height="52" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<text x="140" y="254" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">0</text>
+<rect x="160" y="218" width="40" height="52" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<text x="180" y="254" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">0</text>
+<rect x="200" y="218" width="40" height="52" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<text x="220" y="254" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">0</text>
+<rect x="240" y="218" width="40" height="52" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<text x="260" y="254" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">1</text>
+<rect x="280" y="218" width="40" height="52" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="300" y="254" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">1</text>
+<rect x="320" y="218" width="40" height="52" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="340" y="254" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">0</text>
+<rect x="360" y="218" width="40" height="52" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="380" y="254" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">1</text>
+<rect x="400" y="218" width="40" height="52" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="420" y="254" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">0</text>
+<rect x="440" y="218" width="40" height="52" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="460" y="254" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">0</text>
+<rect x="480" y="218" width="40" height="52" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="500" y="254" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">0</text>
+<rect x="520" y="218" width="40" height="52" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="540" y="254" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">0</text>
+<rect x="560" y="218" width="40" height="52" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="580" y="254" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">0</text>
+<rect x="600" y="218" width="40" height="52" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="620" y="254" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">0</text>
+<rect x="640" y="218" width="40" height="52" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="660" y="254" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">0</text>
+<text x="40" y="311" font-size="27" fill="#245bcc" text-anchor="start" font-weight="400">指数：17 − 15 = 2</text>
+<text x="40" y="351" font-size="27" fill="#087f78" text-anchor="start" font-weight="400">小数：.101₂ = 0.625</text>
+<text x="36" y="415" font-size="29" fill="#172b45" text-anchor="start" font-weight="700">BF16</text>
+<text x="684" y="415" font-size="26" fill="#52657c" text-anchor="end" font-weight="400">1 / 8 / 7</text>
+<rect x="40" y="443" width="40" height="52" rx="3" fill="#fff0d9" stroke="#ffffff"/>
+<text x="60" y="479" font-size="28" fill="#a45908" text-anchor="middle" font-weight="700">0</text>
+<rect x="80" y="443" width="40" height="52" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<text x="100" y="479" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">1</text>
+<rect x="120" y="443" width="40" height="52" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<text x="140" y="479" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">0</text>
+<rect x="160" y="443" width="40" height="52" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<text x="180" y="479" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">0</text>
+<rect x="200" y="443" width="40" height="52" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<text x="220" y="479" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">0</text>
+<rect x="240" y="443" width="40" height="52" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<text x="260" y="479" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">0</text>
+<rect x="280" y="443" width="40" height="52" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<text x="300" y="479" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">0</text>
+<rect x="320" y="443" width="40" height="52" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<text x="340" y="479" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">0</text>
+<rect x="360" y="443" width="40" height="52" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<text x="380" y="479" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">1</text>
+<rect x="400" y="443" width="40" height="52" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="420" y="479" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">1</text>
+<rect x="440" y="443" width="40" height="52" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="460" y="479" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">0</text>
+<rect x="480" y="443" width="40" height="52" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="500" y="479" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">1</text>
+<rect x="520" y="443" width="40" height="52" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="540" y="479" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">0</text>
+<rect x="560" y="443" width="40" height="52" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="580" y="479" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">0</text>
+<rect x="600" y="443" width="40" height="52" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="620" y="479" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">0</text>
+<rect x="640" y="443" width="40" height="52" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="660" y="479" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">0</text>
+<text x="40" y="536" font-size="27" fill="#245bcc" text-anchor="start" font-weight="400">指数：129 − 127 = 2</text>
+<text x="40" y="576" font-size="27" fill="#087f78" text-anchor="start" font-weight="400">小数：.101₂ = 0.625</text>
+<rect x="36" y="609" width="648" height="85" rx="10" fill="#ffffff" stroke="none"/>
+<text x="56" y="642" font-size="27" fill="#7551b5" text-anchor="start" font-weight="700">隐含的 1 在位格外补上</text>
+<text x="56" y="679" font-size="28" fill="#172b45" text-anchor="start" font-weight="400">1.101₂ × 2² = 1.625 × 4 = 6.5</text>
+</svg>
