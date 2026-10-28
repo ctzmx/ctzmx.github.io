@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1178" viewBox="0 0 720 1178" role="img" aria-labelledby="title desc">
+<title id="title">量化粒度：哪些权重共用参数？</title>
+<desc id="desc">三图均为同一个4行8列权重矩阵，每行代表一个输出通道，每格代表一个权重，未表示权重数值或大小。per-tensor全张量共用一套参数；per-channel按行使用4套参数；per-group沿每行每4个权重分组，使用8套参数。颜色和s,z编号同时标记参数共享。</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="context-stroke"/></marker></defs>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC","PingFang SC",sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect width="720" height="1178" rx="18" fill="#f7f9fc"/>
+<text x="36" y="52" font-size="32" fill="#172b45" text-anchor="start" font-weight="700">量化粒度：哪些权重共用参数？</text>
+<text x="36" y="96" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">示例：4 行 × 8 列；每行是一个输出通道</text>
+<text x="36" y="134" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">每格一个权重；同色共用一套 (s, z)</text>
+<rect x="24" y="160" width="672" height="293" rx="12" fill="#ffffff" stroke="none"/>
+<text x="44" y="199" font-size="29" fill="#172b45" text-anchor="start" font-weight="700">per-tensor</text>
+<text x="676" y="199" font-size="27" fill="#52657c" text-anchor="end" font-weight="400">1 套参数</text>
+<text x="44" y="254" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">行 1</text>
+<rect x="146" y="225" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="210" y="225" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="274" y="225" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="338" y="225" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="402" y="225" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="466" y="225" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="530" y="225" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="594" y="225" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<text x="44" y="294" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">行 2</text>
+<rect x="146" y="265" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="210" y="265" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="274" y="265" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="338" y="265" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="402" y="265" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="466" y="265" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="530" y="265" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="594" y="265" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<text x="44" y="334" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">行 3</text>
+<rect x="146" y="305" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="210" y="305" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="274" y="305" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="338" y="305" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="402" y="305" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="466" y="305" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="530" y="305" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="594" y="305" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<text x="44" y="374" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">行 4</text>
+<rect x="146" y="345" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="210" y="345" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="274" y="345" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="338" y="345" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="402" y="345" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="466" y="345" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="530" y="345" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="594" y="345" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="147" y="226" width="510" height="158" rx="4" fill="none" stroke="#245bcc"/>
+<rect x="354" y="289" width="96" height="32" rx="4" fill="#e7eeff" stroke="none"/>
+<text x="402" y="314" font-size="26" fill="#245bcc" text-anchor="middle" font-weight="700">s1, z1</text>
+<text x="44" y="425" font-size="27" fill="#52657c" text-anchor="start" font-weight="400">整个张量共用一套参数</text>
+<rect x="24" y="474" width="672" height="293" rx="12" fill="#ffffff" stroke="none"/>
+<text x="44" y="513" font-size="29" fill="#172b45" text-anchor="start" font-weight="700">per-channel</text>
+<text x="676" y="513" font-size="27" fill="#52657c" text-anchor="end" font-weight="400">4 套参数</text>
+<text x="44" y="568" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">行 1</text>
+<rect x="146" y="539" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="210" y="539" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="274" y="539" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="338" y="539" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="402" y="539" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="466" y="539" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="530" y="539" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="594" y="539" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<text x="44" y="608" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">行 2</text>
+<rect x="146" y="579" width="64" height="40" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<rect x="210" y="579" width="64" height="40" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<rect x="274" y="579" width="64" height="40" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<rect x="338" y="579" width="64" height="40" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<rect x="402" y="579" width="64" height="40" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<rect x="466" y="579" width="64" height="40" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<rect x="530" y="579" width="64" height="40" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<rect x="594" y="579" width="64" height="40" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="44" y="648" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">行 3</text>
+<rect x="146" y="619" width="64" height="40" rx="3" fill="#fff0d9" stroke="#ffffff"/>
+<rect x="210" y="619" width="64" height="40" rx="3" fill="#fff0d9" stroke="#ffffff"/>
+<rect x="274" y="619" width="64" height="40" rx="3" fill="#fff0d9" stroke="#ffffff"/>
+<rect x="338" y="619" width="64" height="40" rx="3" fill="#fff0d9" stroke="#ffffff"/>
+<rect x="402" y="619" width="64" height="40" rx="3" fill="#fff0d9" stroke="#ffffff"/>
+<rect x="466" y="619" width="64" height="40" rx="3" fill="#fff0d9" stroke="#ffffff"/>
+<rect x="530" y="619" width="64" height="40" rx="3" fill="#fff0d9" stroke="#ffffff"/>
+<rect x="594" y="619" width="64" height="40" rx="3" fill="#fff0d9" stroke="#ffffff"/>
+<text x="44" y="688" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">行 4</text>
+<rect x="146" y="659" width="64" height="40" rx="3" fill="#eee7fa" stroke="#ffffff"/>
+<rect x="210" y="659" width="64" height="40" rx="3" fill="#eee7fa" stroke="#ffffff"/>
+<rect x="274" y="659" width="64" height="40" rx="3" fill="#eee7fa" stroke="#ffffff"/>
+<rect x="338" y="659" width="64" height="40" rx="3" fill="#eee7fa" stroke="#ffffff"/>
+<rect x="402" y="659" width="64" height="40" rx="3" fill="#eee7fa" stroke="#ffffff"/>
+<rect x="466" y="659" width="64" height="40" rx="3" fill="#eee7fa" stroke="#ffffff"/>
+<rect x="530" y="659" width="64" height="40" rx="3" fill="#eee7fa" stroke="#ffffff"/>
+<rect x="594" y="659" width="64" height="40" rx="3" fill="#eee7fa" stroke="#ffffff"/>
+<rect x="147" y="540" width="510" height="38" rx="4" fill="none" stroke="#245bcc"/>
+<rect x="354" y="543" width="96" height="32" rx="4" fill="#e7eeff" stroke="none"/>
+<text x="402" y="568" font-size="26" fill="#245bcc" text-anchor="middle" font-weight="700">s1, z1</text>
+<rect x="147" y="580" width="510" height="38" rx="4" fill="none" stroke="#087f78"/>
+<rect x="354" y="583" width="96" height="32" rx="4" fill="#dff3ef" stroke="none"/>
+<text x="402" y="608" font-size="26" fill="#087f78" text-anchor="middle" font-weight="700">s2, z2</text>
+<rect x="147" y="620" width="510" height="38" rx="4" fill="none" stroke="#a45908"/>
+<rect x="354" y="623" width="96" height="32" rx="4" fill="#fff0d9" stroke="none"/>
+<text x="402" y="648" font-size="26" fill="#a45908" text-anchor="middle" font-weight="700">s3, z3</text>
+<rect x="147" y="660" width="510" height="38" rx="4" fill="none" stroke="#7551b5"/>
+<rect x="354" y="663" width="96" height="32" rx="4" fill="#eee7fa" stroke="none"/>
+<text x="402" y="688" font-size="26" fill="#7551b5" text-anchor="middle" font-weight="700">s4, z4</text>
+<text x="44" y="739" font-size="27" fill="#52657c" text-anchor="start" font-weight="400">按行划分：每个输出通道一套参数</text>
+<rect x="24" y="788" width="672" height="293" rx="12" fill="#ffffff" stroke="none"/>
+<text x="44" y="827" font-size="29" fill="#172b45" text-anchor="start" font-weight="700">per-group</text>
+<text x="676" y="827" font-size="27" fill="#52657c" text-anchor="end" font-weight="400">8 套参数</text>
+<text x="44" y="882" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">行 1</text>
+<rect x="146" y="853" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="210" y="853" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="274" y="853" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="338" y="853" width="64" height="40" rx="3" fill="#e7eeff" stroke="#ffffff"/>
+<rect x="402" y="853" width="64" height="40" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<rect x="466" y="853" width="64" height="40" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<rect x="530" y="853" width="64" height="40" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<rect x="594" y="853" width="64" height="40" rx="3" fill="#dff3ef" stroke="#ffffff"/>
+<text x="44" y="922" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">行 2</text>
+<rect x="146" y="893" width="64" height="40" rx="3" fill="#fff0d9" stroke="#ffffff"/>
+<rect x="210" y="893" width="64" height="40" rx="3" fill="#fff0d9" stroke="#ffffff"/>
+<rect x="274" y="893" width="64" height="40" rx="3" fill="#fff0d9" stroke="#ffffff"/>
+<rect x="338" y="893" width="64" height="40" rx="3" fill="#fff0d9" stroke="#ffffff"/>
+<rect x="402" y="893" width="64" height="40" rx="3" fill="#eee7fa" stroke="#ffffff"/>
+<rect x="466" y="893" width="64" height="40" rx="3" fill="#eee7fa" stroke="#ffffff"/>
+<rect x="530" y="893" width="64" height="40" rx="3" fill="#eee7fa" stroke="#ffffff"/>
+<rect x="594" y="893" width="64" height="40" rx="3" fill="#eee7fa" stroke="#ffffff"/>
+<text x="44" y="962" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">行 3</text>
+<rect x="146" y="933" width="64" height="40" rx="3" fill="#fbe7ef" stroke="#ffffff"/>
+<rect x="210" y="933" width="64" height="40" rx="3" fill="#fbe7ef" stroke="#ffffff"/>
+<rect x="274" y="933" width="64" height="40" rx="3" fill="#fbe7ef" stroke="#ffffff"/>
+<rect x="338" y="933" width="64" height="40" rx="3" fill="#fbe7ef" stroke="#ffffff"/>
+<rect x="402" y="933" width="64" height="40" rx="3" fill="#edf3dc" stroke="#ffffff"/>
+<rect x="466" y="933" width="64" height="40" rx="3" fill="#edf3dc" stroke="#ffffff"/>
+<rect x="530" y="933" width="64" height="40" rx="3" fill="#edf3dc" stroke="#ffffff"/>
+<rect x="594" y="933" width="64" height="40" rx="3" fill="#edf3dc" stroke="#ffffff"/>
+<text x="44" y="1002" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">行 4</text>
+<rect x="146" y="973" width="64" height="40" rx="3" fill="#e1f0f7" stroke="#ffffff"/>
+<rect x="210" y="973" width="64" height="40" rx="3" fill="#e1f0f7" stroke="#ffffff"/>
+<rect x="274" y="973" width="64" height="40" rx="3" fill="#e1f0f7" stroke="#ffffff"/>
+<rect x="338" y="973" width="64" height="40" rx="3" fill="#e1f0f7" stroke="#ffffff"/>
+<rect x="402" y="973" width="64" height="40" rx="3" fill="#f4e8df" stroke="#ffffff"/>
+<rect x="466" y="973" width="64" height="40" rx="3" fill="#f4e8df" stroke="#ffffff"/>
+<rect x="530" y="973" width="64" height="40" rx="3" fill="#f4e8df" stroke="#ffffff"/>
+<rect x="594" y="973" width="64" height="40" rx="3" fill="#f4e8df" stroke="#ffffff"/>
+<rect x="147" y="854" width="254" height="38" rx="4" fill="none" stroke="#245bcc"/>
+<rect x="226" y="857" width="96" height="32" rx="4" fill="#e7eeff" stroke="none"/>
+<text x="274" y="882" font-size="26" fill="#245bcc" text-anchor="middle" font-weight="700">s1, z1</text>
+<rect x="403" y="854" width="254" height="38" rx="4" fill="none" stroke="#087f78"/>
+<rect x="482" y="857" width="96" height="32" rx="4" fill="#dff3ef" stroke="none"/>
+<text x="530" y="882" font-size="26" fill="#087f78" text-anchor="middle" font-weight="700">s2, z2</text>
+<rect x="147" y="894" width="254" height="38" rx="4" fill="none" stroke="#a45908"/>
+<rect x="226" y="897" width="96" height="32" rx="4" fill="#fff0d9" stroke="none"/>
+<text x="274" y="922" font-size="26" fill="#a45908" text-anchor="middle" font-weight="700">s3, z3</text>
+<rect x="403" y="894" width="254" height="38" rx="4" fill="none" stroke="#7551b5"/>
+<rect x="482" y="897" width="96" height="32" rx="4" fill="#eee7fa" stroke="none"/>
+<text x="530" y="922" font-size="26" fill="#7551b5" text-anchor="middle" font-weight="700">s4, z4</text>
+<rect x="147" y="934" width="254" height="38" rx="4" fill="none" stroke="#a33f6c"/>
+<rect x="226" y="937" width="96" height="32" rx="4" fill="#fbe7ef" stroke="none"/>
+<text x="274" y="962" font-size="26" fill="#a33f6c" text-anchor="middle" font-weight="700">s5, z5</text>
+<rect x="403" y="934" width="254" height="38" rx="4" fill="none" stroke="#536b2d"/>
+<rect x="482" y="937" width="96" height="32" rx="4" fill="#edf3dc" stroke="none"/>
+<text x="530" y="962" font-size="26" fill="#536b2d" text-anchor="middle" font-weight="700">s6, z6</text>
+<rect x="147" y="974" width="254" height="38" rx="4" fill="none" stroke="#397089"/>
+<rect x="226" y="977" width="96" height="32" rx="4" fill="#e1f0f7" stroke="none"/>
+<text x="274" y="1002" font-size="26" fill="#397089" text-anchor="middle" font-weight="700">s7, z7</text>
+<rect x="403" y="974" width="254" height="38" rx="4" fill="none" stroke="#8a553e"/>
+<rect x="482" y="977" width="96" height="32" rx="4" fill="#f4e8df" stroke="none"/>
+<text x="530" y="1002" font-size="26" fill="#8a553e" text-anchor="middle" font-weight="700">s8, z8</text>
+<text x="44" y="1053" font-size="27" fill="#52657c" text-anchor="start" font-weight="400">沿行分组：每 4 个元素一套参数</text>
+<text x="36" y="1123" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">结构示意，不按数值比例；颜色不表示大小</text>
+<text x="36" y="1160" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">s = scale，z = zero_point</text>
+</svg>

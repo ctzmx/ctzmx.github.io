@@ -1,0 +1,53 @@
+---
+layout: page
+title: "量化 Quant"
+description: "从数值表示出发，理解模型如何用更少的位完成推理。"
+permalink: /quant/
+---
+
+{% capture precision_basics_url %}{% post_url 2026-10-28-deep-learning-numerical-precision-basics %}{% endcapture %}
+{% capture floating_point_errors_url %}{% post_url 2026-10-28-deep-learning-floating-point-errors %}{% endcapture %}
+{% capture deployment_checks_url %}{% post_url 2026-05-31-llm-quantization-eval-sanity-check %}{% endcapture %}
+{% assign quant_posts = site.tags['Quant'] | sort: 'date' %}
+
+<p>同样只有 8 位，FP8 和 INT8 怎样表示不同的数？把浮点权重变成整数以后，如何还原它的含义，又怎样判断模型还能不能用？这个栏目围绕深度学习模型量化展开，从数值表示走到量化映射、校准与粒度，再进入 PTQ、QAT 和部署评测。</p>
+
+<p>量化的起点是用有限的编码表示张量中的数值。我们先弄清楚范围、间隔和误差，再讨论模型效果、存储开销与实际运行速度。</p>
+
+<section class="tag-section" aria-labelledby="quant-foundations">
+    <h2 id="quant-foundations">从数据精度开始</h2>
+    <p>这两篇文章是栏目的基础阅读。已经熟悉浮点数表示和误差来源，可以直接进入下方的量化文章。</p>
+    <ol>
+        <li><a href="{{ precision_basics_url | relative_url }}">深度学习数据精度（一）：常见格式的位分配与值域</a>：先区分数值范围、表示间隔与模型效果，理解 FP32、BF16、FP8 和 INT8 的不同。</li>
+        <li><a href="{{ floating_point_errors_url | relative_url }}">深度学习数据精度（二）：浮点运算中的舍入、溢出与下溢</a>：观察误差怎样产生，区分存储格式、累加格式和输出格式。</li>
+    </ol>
+</section>
+
+<section class="tag-section" aria-labelledby="quant-articles">
+    <h2 id="quant-articles">量化文章 · 按顺序阅读</h2>
+    <p>从 INT8 的 scale 与 zero-point 开始，把数值精度知识落到具体的量化与反量化过程。</p>
+    {% for post in quant_posts %}
+    <article class="tag-post">
+        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+    </article>
+    {% else %}
+    <p>量化文章正在准备中。</p>
+    {% endfor %}
+</section>
+
+<section class="tag-section" aria-labelledby="quant-roadmap">
+    <h2 id="quant-roadmap">后续方向</h2>
+    <p>以下是后续写作方向，会沿着“数值表示 → 量化映射 → 校准与粒度 → PTQ / QAT → 部署评测”逐步展开。</p>
+    <ol>
+        <li><strong>校准与范围选择：</strong>怎样用代表性数据估计激活范围，理解离群值、裁剪误差和舍入误差之间的取舍。</li>
+        <li><strong>量化粒度：</strong>比较 per-tensor、per-channel 和 per-group，观察缩放因子的共享范围如何影响误差与额外开销。</li>
+        <li><strong>PTQ 与 QAT：</strong>分别理解训练后量化和量化感知训练的流程、适用条件及验证方法。</li>
+        <li><strong>部署与评测：</strong>把权重、激活和累加精度放回实际计算路径，在一致的输入与评测条件下比较模型效果、显存和延迟。</li>
+    </ol>
+</section>
+
+<section class="tag-section" aria-labelledby="quant-further-reading">
+    <h2 id="quant-further-reading">延伸阅读</h2>
+    <p><a href="{{ deployment_checks_url | relative_url }}">LLM 低精度部署排查</a>：已有的部署实践文章。比较低精度模型与 BF16 基线时，先固定输入、解码、停止规则和打分脚本，才能判断差异来自哪里。</p>
+</section>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="732" viewBox="0 0 720 732" role="img" aria-labelledby="title desc">
+<title id="title">同样的间距，不同的零点</title>
+<desc id="desc">两图均为零附近的局部放大，scale=0.02。上图 INT8 的 zero_point=0，实数零用编码0表示，完整范围为[-2.56,2.54]；下图 UINT8 的 zero_point=50，实数零用编码50表示，完整范围为[-1,4.1]。</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="context-stroke"/></marker></defs>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC","PingFang SC",sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect width="720" height="732" rx="18" fill="#f7f9fc"/>
+<text x="36" y="52" font-size="32" fill="#172b45" text-anchor="start" font-weight="700">同样的间距，不同的零点</text>
+<text x="36" y="96" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">局部放大：相邻实数格点都相差 0.02</text>
+<rect x="24" y="126" width="672" height="244" rx="12" fill="#ffffff" stroke="none"/>
+<text x="44" y="166" font-size="27" fill="#245bcc" text-anchor="start" font-weight="700">INT8    scale = 0.02    zero_point = 0</text>
+<rect x="390" y="181" width="40" height="142" rx="8" fill="#edf0ff" stroke="none"/>
+<text x="44" y="231" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">编码 q</text>
+<text x="44" y="292" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">实数 x̂</text>
+<line x1="160" y1="223" x2="657" y2="223" stroke="#a8b6c7" stroke-width="2"/>
+<line x1="160" y1="285" x2="657" y2="285" stroke="#a8b6c7" stroke-width="2"/>
+<line x1="180" y1="231" x2="180" y2="276" stroke="#a8b6c7" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<circle cx="180" cy="223" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="180" cy="285" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<text x="180" y="205" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">-2</text>
+<text x="180" y="322" font-size="27" fill="#245bcc" text-anchor="middle" font-weight="400">-0.04</text>
+<line x1="295" y1="231" x2="295" y2="276" stroke="#a8b6c7" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<circle cx="295" cy="223" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="295" cy="285" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<text x="295" y="205" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">-1</text>
+<text x="295" y="322" font-size="27" fill="#245bcc" text-anchor="middle" font-weight="400">-0.02</text>
+<line x1="410" y1="231" x2="410" y2="276" stroke="#245bcc" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<circle cx="410" cy="223" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="410" cy="285" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<text x="410" y="205" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">0</text>
+<text x="410" y="322" font-size="27" fill="#245bcc" text-anchor="middle" font-weight="400">0</text>
+<line x1="525" y1="231" x2="525" y2="276" stroke="#a8b6c7" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<circle cx="525" cy="223" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="525" cy="285" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<text x="525" y="205" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">1</text>
+<text x="525" y="322" font-size="27" fill="#245bcc" text-anchor="middle" font-weight="400">0.02</text>
+<line x1="640" y1="231" x2="640" y2="276" stroke="#a8b6c7" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<circle cx="640" cy="223" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="640" cy="285" r="5" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<text x="640" y="205" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">2</text>
+<text x="640" y="322" font-size="27" fill="#245bcc" text-anchor="middle" font-weight="400">0.04</text>
+<text x="44" y="356" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">完整解码范围：[-2.56, 2.54]</text>
+<rect x="24" y="390" width="672" height="244" rx="12" fill="#ffffff" stroke="none"/>
+<text x="44" y="430" font-size="27" fill="#087f78" text-anchor="start" font-weight="700">UINT8    scale = 0.02    zero_point = 50</text>
+<rect x="390" y="445" width="40" height="142" rx="8" fill="#e2f5ee" stroke="none"/>
+<text x="44" y="495" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">编码 q</text>
+<text x="44" y="556" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">实数 x̂</text>
+<line x1="160" y1="487" x2="657" y2="487" stroke="#a8b6c7" stroke-width="2"/>
+<line x1="160" y1="549" x2="657" y2="549" stroke="#a8b6c7" stroke-width="2"/>
+<line x1="180" y1="495" x2="180" y2="540" stroke="#a8b6c7" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<circle cx="180" cy="487" r="5" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<circle cx="180" cy="549" r="5" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<text x="180" y="469" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">48</text>
+<text x="180" y="586" font-size="27" fill="#087f78" text-anchor="middle" font-weight="400">-0.04</text>
+<line x1="295" y1="495" x2="295" y2="540" stroke="#a8b6c7" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<circle cx="295" cy="487" r="5" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<circle cx="295" cy="549" r="5" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<text x="295" y="469" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">49</text>
+<text x="295" y="586" font-size="27" fill="#087f78" text-anchor="middle" font-weight="400">-0.02</text>
+<line x1="410" y1="495" x2="410" y2="540" stroke="#087f78" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<circle cx="410" cy="487" r="5" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<circle cx="410" cy="549" r="5" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<text x="410" y="469" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">50</text>
+<text x="410" y="586" font-size="27" fill="#087f78" text-anchor="middle" font-weight="400">0</text>
+<line x1="525" y1="495" x2="525" y2="540" stroke="#a8b6c7" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<circle cx="525" cy="487" r="5" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<circle cx="525" cy="549" r="5" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<text x="525" y="469" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">51</text>
+<text x="525" y="586" font-size="27" fill="#087f78" text-anchor="middle" font-weight="400">0.02</text>
+<line x1="640" y1="495" x2="640" y2="540" stroke="#a8b6c7" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<circle cx="640" cy="487" r="5" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<circle cx="640" cy="549" r="5" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<text x="640" y="469" font-size="28" fill="#087f78" text-anchor="middle" font-weight="700">52</text>
+<text x="640" y="586" font-size="27" fill="#087f78" text-anchor="middle" font-weight="400">0.04</text>
+<text x="44" y="620" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">完整解码范围：[-1.00, 4.10]</text>
+<text x="36" y="678" font-size="27" fill="#172b45" text-anchor="start" font-weight="700">zero_point = 50：用整数 50 编码实数 0</text>
+<text x="36" y="714" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">它移动编码中的零点位置，不改变格点间距。</text>
+</svg>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="772" viewBox="0 0 720 772" role="img" aria-labelledby="title desc">
+<title id="title">舍入与裁剪，是两种不同的误差</title>
+<desc id="desc">scale=0.125，zero_point=0，编码范围[-127,127]。上图局部实数轴[0,0.375]：0.0625舍入为0，0.3125舍入为0.25，平局取偶数编码。下图实数轴[-20,20]：±20被裁剪到±15.875，绝对误差4.125，输出仍有限。</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="context-stroke"/></marker></defs>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC","PingFang SC",sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect width="720" height="772" rx="18" fill="#f7f9fc"/>
+<text x="36" y="52" font-size="32" fill="#172b45" text-anchor="start" font-weight="700">舍入与裁剪，是两种不同的误差</text>
+<text x="36" y="96" font-size="27" fill="#52657c" text-anchor="start" font-weight="400">scale = 0.125，zero_point = 0</text>
+<rect x="24" y="123" width="672" height="318" rx="12" fill="#ffffff" stroke="none"/>
+<text x="44" y="163" font-size="28" fill="#245bcc" text-anchor="start" font-weight="700">范围内：舍入到最近格点</text>
+<text x="44" y="201" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">中点平局 → 选偶数编码 q</text>
+<line x1="70" y1="298" x2="650" y2="298" stroke="#a8b6c7" stroke-width="2"/>
+<circle cx="90" cy="298" r="7" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<text x="90" y="340" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">0</text>
+<text x="90" y="379" font-size="26" fill="#52657c" text-anchor="middle" font-weight="400">q = 0</text>
+<circle cx="270" cy="298" r="7" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<text x="270" y="340" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">0.125</text>
+<text x="270" y="379" font-size="26" fill="#52657c" text-anchor="middle" font-weight="400">q = 1</text>
+<circle cx="450" cy="298" r="7" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<text x="450" y="340" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">0.25</text>
+<text x="450" y="379" font-size="26" fill="#52657c" text-anchor="middle" font-weight="400">q = 2</text>
+<circle cx="630" cy="298" r="7" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<text x="630" y="340" font-size="28" fill="#245bcc" text-anchor="middle" font-weight="700">0.375</text>
+<text x="630" y="379" font-size="26" fill="#52657c" text-anchor="middle" font-weight="400">q = 3</text>
+<text x="180" y="245" font-size="26" fill="#a45908" text-anchor="middle" font-weight="700">0.0625</text>
+<path d="M180.0,286 L180.0,260 L90.0,260 L90.0,283" fill="none" stroke="#a45908" stroke-width="3" marker-end="url(#arrow)"/>
+<circle cx="180" cy="298" r="7" fill="white" stroke="#a45908" stroke-width="3"/>
+<text x="540" y="245" font-size="26" fill="#a45908" text-anchor="middle" font-weight="700">0.3125</text>
+<path d="M540.0,286 L540.0,260 L450.0,260 L450.0,283" fill="none" stroke="#a45908" stroke-width="3" marker-end="url(#arrow)"/>
+<circle cx="540" cy="298" r="7" fill="white" stroke="#a45908" stroke-width="3"/>
+<text x="44" y="420" font-size="27" fill="#52657c" text-anchor="start" font-weight="400">两次误差均为 0.0625 = scale / 2</text>
+<rect x="24" y="463" width="672" height="285" rx="12" fill="#ffffff" stroke="none"/>
+<text x="44" y="503" font-size="28" fill="#087f78" text-anchor="start" font-weight="700">范围外：裁剪到端点，仍然有限</text>
+<text x="44" y="541" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">对称编码 q ∈ [-127, 127]</text>
+<rect x="117.906" y="603" width="484.188" height="40" rx="7" fill="#e2f5ee" stroke="none"/>
+<line x1="55" y1="623" x2="665" y2="623" stroke="#a8b6c7" stroke-width="2"/>
+<line x1="55" y1="623" x2="117.906" y2="623" stroke="#a45908" stroke-width="3" marker-end="url(#arrow)"/>
+<circle cx="55" cy="623" r="7" fill="white" stroke="#a45908" stroke-width="3"/>
+<circle cx="117.906" cy="623" r="7" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<text x="55" y="669" font-size="27" fill="#a45908" text-anchor="middle" font-weight="700">-20</text>
+<text x="117.906" y="589" font-size="27" fill="#087f78" text-anchor="middle" font-weight="700">-15.875</text>
+<line x1="665" y1="623" x2="602.094" y2="623" stroke="#a45908" stroke-width="3" marker-end="url(#arrow)"/>
+<circle cx="665" cy="623" r="7" fill="white" stroke="#a45908" stroke-width="3"/>
+<circle cx="602.094" cy="623" r="7" fill="#087f78" stroke="#087f78" stroke-width="3"/>
+<text x="665" y="669" font-size="27" fill="#a45908" text-anchor="middle" font-weight="700">20</text>
+<text x="602.094" y="589" font-size="27" fill="#087f78" text-anchor="middle" font-weight="700">15.875</text>
+<text x="360" y="632" font-size="26" fill="#087f78" text-anchor="middle" font-weight="400">解码范围</text>
+<text x="44" y="718" font-size="27" fill="#a45908" text-anchor="start" font-weight="700">裁剪误差 4.125，已大于 scale / 2</text>
+</svg>
