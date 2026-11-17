@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="484" viewBox="0 0 720 792" role="img" aria-labelledby="title desc">
+<title id="title">转换边界：三个数不能混用</title>
+<desc id="desc">最近偶数舍入、非饱和转换的正数边界。上方线性数轴从65472到65536。65504是FP16最大有限值，65520是舍入溢出阈值。65536只是将有效数精度保持不变、把指数范围继续延伸时的假想下一点，不是有限FP16值。下方单独列出BF16转换：65280转FP16保持65280，65536转为正无穷。FP32的65504若先存入BF16，会成为65536，再转FP16则溢出。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="context-stroke"/></marker></defs>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC","PingFang SC",sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect width="720" height="792" rx="18" fill="#f7f9fc"/>
+<text x="36" y="52" font-size="32" fill="#172b45" text-anchor="start" font-weight="700">转换边界：三个数不能混用</text>
+<text x="36" y="96" font-size="25" fill="#52657c" text-anchor="start" font-weight="400">最近偶数舍入 · 非饱和转换 · 正数</text>
+<rect x="24" y="122" width="672" height="342" rx="12" fill="#ffffff" stroke="none"/>
+<line x1="80" y1="218" x2="620" y2="218" stroke="#a8b6c7" stroke-width="2"/>
+<circle cx="80" cy="218" r="7" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<circle cx="350" cy="218" r="7" fill="#245bcc" stroke="#245bcc" stroke-width="3"/>
+<line x1="485" y1="189" x2="485" y2="236" stroke="#a45908" stroke-width="3" stroke-dasharray="5 5"/>
+<circle cx="620" cy="218" r="7" fill="white" stroke="#52657c" stroke-width="3"/>
+<text x="350" y="170" font-size="25" fill="#245bcc" text-anchor="middle" font-weight="700">最大有限值</text>
+<text x="485" y="170" font-size="25" fill="#a45908" text-anchor="middle" font-weight="700">溢出阈值</text>
+<text x="620" y="170" font-size="25" fill="#52657c" text-anchor="middle" font-weight="700">假想下一点</text>
+<text x="80" y="264" font-size="27" fill="#245bcc" text-anchor="middle" font-weight="700">65472</text>
+<text x="350" y="264" font-size="27" fill="#245bcc" text-anchor="middle" font-weight="700">65504</text>
+<text x="485" y="264" font-size="27" fill="#a45908" text-anchor="middle" font-weight="700">65520</text>
+<text x="620" y="264" font-size="27" fill="#52657c" text-anchor="middle" font-weight="700">65536</text>
+<text x="44" y="319" font-size="27" fill="#172b45" text-anchor="start" font-weight="400">65520 = (65504 + 65536) / 2</text>
+<text x="44" y="361" font-size="25" fill="#52657c" text-anchor="start" font-weight="400">65536 在此是假想下一点，非有限 FP16</text>
+<text x="44" y="403" font-size="27" fill="#a45908" text-anchor="start" font-weight="700">输入 ≥ 65520 → +Inf</text>
+<text x="44" y="441" font-size="25" fill="#52657c" text-anchor="start" font-weight="400">Inf 不是数轴上的有限点</text>
+<rect x="24" y="488" width="672" height="204" rx="12" fill="#ffffff" stroke="none"/>
+<text x="44" y="528" font-size="28" fill="#172b45" text-anchor="start" font-weight="700">BF16 输入：相邻值直接转换</text>
+<text x="56" y="578" font-size="28" fill="#087f78" text-anchor="start" font-weight="700">65280  →  FP16 65280</text>
+<text x="56" y="626" font-size="28" fill="#a45908" text-anchor="start" font-weight="700">65536  →  FP16 +Inf</text>
+<text x="44" y="672" font-size="25" fill="#52657c" text-anchor="start" font-weight="400">这两行是转换示例，不是共享比例尺</text>
+<text x="36" y="738" font-size="27" fill="#172b45" text-anchor="start" font-weight="700">先存 BF16：65504 → 65536</text>
+<text x="36" y="774" font-size="27" fill="#a45908" text-anchor="start" font-weight="400">再转 FP16：65536 → +Inf</text>
+</svg>

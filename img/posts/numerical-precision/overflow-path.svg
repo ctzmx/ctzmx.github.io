@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="519.444" viewBox="0 0 720 850" role="img" aria-labelledby="title desc">
+<title id="title">溢出发生在输出写回时</title>
+<desc id="desc">构造的点积再除以4的计算。输入x和权重W均为[256,256]，FP32点积为131072。左路先写回FP16得到Inf，再除以4仍为Inf。右路保留FP32输出，执行模型原有的除以4得到32768，此时写回FP16可精确保留。这里的缩放是模型原有运算，不能通过随意添加除法来保持模型等价。Inf继续参与运算还可能产生NaN。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="context-stroke"/></marker></defs>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC","PingFang SC",sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect width="720" height="850" rx="18" fill="#f7f9fc"/>
+<text x="36" y="52" font-size="32" fill="#172b45" text-anchor="start" font-weight="700">溢出发生在输出写回时</text>
+<text x="36" y="96" font-size="27" fill="#52657c" text-anchor="start" font-weight="400">x = [256, 256]，W = [256, 256]</text>
+<rect x="36" y="122" width="648" height="104" rx="12" fill="#ffffff" stroke="none"/>
+<text x="360" y="161" font-size="27" fill="#172b45" text-anchor="middle" font-weight="400">FP16 输入：每个元素 256，均有限</text>
+<text x="360" y="204" font-size="27" fill="#245bcc" text-anchor="middle" font-weight="700">FP32 点积：256² + 256² = 131072</text>
+<line x1="360" y1="226" x2="360" y2="253" stroke="#52657c" stroke-width="2"/>
+<line x1="192" y1="253" x2="528" y2="253" stroke="#52657c" stroke-width="2"/>
+<line x1="192" y1="253" x2="192" y2="282" stroke="#52657c" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="528" y1="253" x2="528" y2="282" stroke="#52657c" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="36" y="288" width="312" height="106" rx="12" fill="#fff0d9" stroke="none"/>
+<text x="192" y="328" font-size="26" fill="#a45908" text-anchor="middle" font-weight="700">先写回 FP16</text>
+<text x="192" y="370" font-size="27" fill="#a45908" text-anchor="middle" font-weight="400">131072 → +Inf</text>
+<line x1="192" y1="394" x2="192" y2="432" stroke="#a45908" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="36" y="438" width="312" height="106" rx="12" fill="#fff0d9" stroke="none"/>
+<text x="192" y="478" font-size="26" fill="#a45908" text-anchor="middle" font-weight="700">按模型原式 ÷ 4</text>
+<text x="192" y="520" font-size="27" fill="#a45908" text-anchor="middle" font-weight="400">+Inf → +Inf</text>
+<line x1="192" y1="544" x2="192" y2="582" stroke="#a45908" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="36" y="588" width="312" height="106" rx="12" fill="#fff0d9" stroke="none"/>
+<text x="192" y="628" font-size="26" fill="#a45908" text-anchor="middle" font-weight="700">继续写回 FP16</text>
+<text x="192" y="670" font-size="27" fill="#a45908" text-anchor="middle" font-weight="400">仍然是 +Inf</text>
+<rect x="372" y="288" width="312" height="106" rx="12" fill="#dff3ef" stroke="none"/>
+<text x="528" y="328" font-size="26" fill="#087f78" text-anchor="middle" font-weight="700">保留 FP32 输出</text>
+<text x="528" y="370" font-size="27" fill="#087f78" text-anchor="middle" font-weight="400">131072（有限）</text>
+<line x1="528" y1="394" x2="528" y2="432" stroke="#087f78" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="372" y="438" width="312" height="106" rx="12" fill="#dff3ef" stroke="none"/>
+<text x="528" y="478" font-size="26" fill="#087f78" text-anchor="middle" font-weight="700">按模型原式 ÷ 4</text>
+<text x="528" y="520" font-size="27" fill="#087f78" text-anchor="middle" font-weight="400">131072 → 32768</text>
+<line x1="528" y1="544" x2="528" y2="582" stroke="#087f78" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="372" y="588" width="312" height="106" rx="12" fill="#dff3ef" stroke="none"/>
+<text x="528" y="628" font-size="26" fill="#087f78" text-anchor="middle" font-weight="700">此时写回 FP16</text>
+<text x="528" y="670" font-size="27" fill="#087f78" text-anchor="middle" font-weight="400">32768（有限）</text>
+<text x="36" y="748" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">÷ 4 是模型原有运算，不能随意添加。</text>
+<text x="36" y="791" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">左路的 Inf 再参与运算，可能产生 NaN。</text>
+<text x="36" y="830" font-size="26" fill="#087f78" text-anchor="start" font-weight="700">关键：在安全的数值范围内再写回 FP16。</text>
+</svg>
