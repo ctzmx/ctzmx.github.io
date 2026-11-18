@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="914" viewBox="0 0 960 914" role="img" aria-labelledby="title desc">
+<title id="title">MoE 改变的是前馈网络路径</title>
+<desc id="desc">左右分别是 Dense 和常见 MoE Transformer 的简化单层。Attention 之后，Dense 通过同一个 FFN；MoE 通过路由器为每个 token 选择 top-k 专家，运行专家 FFN，再加权合并。两侧保持相同的输入输出隐藏维度。Norm 与残差连接省略；实际模型可混用 Dense 和 MoE 层。</desc>
+<defs><marker id="arrow-line" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 Z" fill="#9aabc0"/></marker><marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 Z" fill="#2864ce"/></marker><marker id="arrow-teal" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 Z" fill="#087e86"/></marker><marker id="arrow-orange" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 Z" fill="#b96111"/></marker><marker id="arrow-purple" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 Z" fill="#7851bd"/></marker></defs>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC","PingFang SC",system-ui,sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect x="0" y="0" width="960" height="914" rx="18" fill="#f7f9fc" stroke="none" stroke-width="2"/>
+<text x="36" y="53" font-size="34" fill="#172b45" text-anchor="start" font-weight="700">MoE 改变的是前馈网络路径</text>
+<text x="36" y="96" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">单层示意：省略 Norm 与残差连接</text>
+<rect x="24" y="124" width="440" height="690" rx="12" fill="white" stroke="none" stroke-width="2"/>
+<rect x="496" y="124" width="440" height="690" rx="12" fill="white" stroke="none" stroke-width="2"/>
+<text x="244" y="170" font-size="30" fill="#2864ce" text-anchor="middle" font-weight="700">Dense 层</text>
+<text x="716" y="170" font-size="30" fill="#7851bd" text-anchor="middle" font-weight="700">MoE 层</text>
+<rect x="79" y="196" width="330" height="60" rx="12" fill="#e9f0ff" stroke="none" stroke-width="2"/><text x="244.0" y="235.1" font-size="26" fill="#2864ce" text-anchor="middle" font-weight="600">输入隐藏状态 h</text>
+<path d="M244,264 L244,287" fill="none" stroke="#9aabc0" stroke-width="3" marker-end="url(#arrow-line)"/>
+<rect x="79" y="298" width="330" height="60" rx="12" fill="#e5f5f3" stroke="none" stroke-width="2"/><text x="244.0" y="337.1" font-size="26" fill="#087e86" text-anchor="middle" font-weight="600">Attention</text>
+<path d="M244,366 L244,389" fill="none" stroke="#9aabc0" stroke-width="3" marker-end="url(#arrow-line)"/>
+<rect x="551" y="196" width="330" height="60" rx="12" fill="#e9f0ff" stroke="none" stroke-width="2"/><text x="716.0" y="235.1" font-size="26" fill="#2864ce" text-anchor="middle" font-weight="600">输入隐藏状态 h</text>
+<path d="M716,264 L716,287" fill="none" stroke="#9aabc0" stroke-width="3" marker-end="url(#arrow-line)"/>
+<rect x="551" y="298" width="330" height="60" rx="12" fill="#e5f5f3" stroke="none" stroke-width="2"/><text x="716.0" y="337.1" font-size="26" fill="#087e86" text-anchor="middle" font-weight="600">Attention</text>
+<path d="M716,366 L716,389" fill="none" stroke="#9aabc0" stroke-width="3" marker-end="url(#arrow-line)"/>
+<rect x="79" y="402" width="330" height="222" rx="12" fill="#e9f0ff" stroke="none" stroke-width="2"/><text x="244.0" y="524.2" font-size="32" fill="#2864ce" text-anchor="middle" font-weight="600">同一个 FFN</text>
+<text x="244" y="551" font-size="24" fill="#2864ce" text-anchor="middle" font-weight="400">每个 token 都经过它</text>
+<path d="M244,632 L244,707" fill="none" stroke="#9aabc0" stroke-width="3" marker-end="url(#arrow-line)"/>
+<rect x="79" y="720" width="330" height="60" rx="12" fill="#e9f0ff" stroke="none" stroke-width="2"/><text x="244.0" y="759.1" font-size="26" fill="#2864ce" text-anchor="middle" font-weight="600">输出隐藏状态 h′</text>
+<rect x="551" y="402" width="330" height="62" rx="12" fill="#f0eafa" stroke="none" stroke-width="2"/><text x="716.0" y="441.4" font-size="24" fill="#7851bd" text-anchor="middle" font-weight="600">Router：每 token 选 top-k</text>
+<path d="M716,471 L716,483 L568,483 L568,493" fill="none" stroke="#7851bd" stroke-width="3" marker-end="url(#arrow-purple)"/>
+<path d="M716,483 L780,483 L780,493" fill="none" stroke="#7851bd" stroke-width="3" marker-end="url(#arrow-purple)"/>
+<rect x="524" y="500" width="88" height="80" rx="12" fill="#fff0de" stroke="none" stroke-width="2"/><text x="568.0" y="549.8" font-size="28" fill="#b96111" text-anchor="middle" font-weight="600">E1</text>
+<rect x="630" y="500" width="88" height="80" rx="12" fill="#f1f3f6" stroke="none" stroke-width="2"/><text x="674.0" y="549.8" font-size="28" fill="#52657c" text-anchor="middle" font-weight="600">E2</text>
+<rect x="736" y="500" width="88" height="80" rx="12" fill="#fff0de" stroke="none" stroke-width="2"/><text x="780.0" y="549.8" font-size="28" fill="#b96111" text-anchor="middle" font-weight="600">E3</text>
+<rect x="842" y="500" width="88" height="80" rx="12" fill="#f1f3f6" stroke="none" stroke-width="2"/><text x="886.0" y="549.8" font-size="28" fill="#52657c" text-anchor="middle" font-weight="600">E4</text>
+<path d="M568,588 L652,638" fill="none" stroke="#b96111" stroke-width="3" marker-end="url(#arrow-orange)"/>
+<path d="M780,588 L780,638" fill="none" stroke="#b96111" stroke-width="3" marker-end="url(#arrow-orange)"/>
+<rect x="551" y="646" width="330" height="54" rx="12" fill="#f0eafa" stroke="none" stroke-width="2"/><text x="716.0" y="682.1" font-size="26" fill="#7851bd" text-anchor="middle" font-weight="600">专家输出加权合并</text>
+<path d="M716,708 L716,713" fill="none" stroke="#9aabc0" stroke-width="3" marker-end="url(#arrow-line)"/>
+<rect x="551" y="720" width="330" height="60" rx="12" fill="#e9f0ff" stroke="none" stroke-width="2"/><text x="716.0" y="759.1" font-size="26" fill="#2864ce" text-anchor="middle" font-weight="600">输出隐藏状态 h′</text>
+<text x="36" y="858" font-size="26" fill="#172b45" text-anchor="start" font-weight="600">专家通常是 FFN；模型可混用 Dense 层与 MoE 层</text>
+<text x="36" y="894" font-size="24" fill="#52657c" text-anchor="start" font-weight="400">输入、输出维度一致，改变的是内部计算路径。</text>
+</svg>

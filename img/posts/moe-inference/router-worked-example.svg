@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1100" viewBox="0 0 720 1100" role="img" aria-labelledby="title desc">
+<title id="title">Router 选路径，专家处理原向量</title>
+<desc id="desc">一个token的二维隐藏向量x分别送往Router和被选中的专家。Router对4个专家给出的softmax概率为0.6、0.1、0.2、0.1，Top-2选E1和E3，归一化权重为0.75和0.25。给定演示输出E1(x)=[4,0]、E3(x)=[0,4]，最终加权结果为[3,1]。E2和E4得到路由分数，但不执行FFN；专家接收x，不是接收四维概率向量。所有数值为教学构造。</desc>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC","PingFang SC",system-ui,sans-serif;font-variant-numeric:tabular-nums}</style>
+<defs><marker id="a2864ce" markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L11,5.5 L0,11 Z" fill="#2864ce"/></marker><marker id="a7851bd" markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L11,5.5 L0,11 Z" fill="#7851bd"/></marker><marker id="ab96111" markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L11,5.5 L0,11 Z" fill="#b96111"/></marker></defs>
+<rect x="0" y="0" width="720" height="1100" rx="18" fill="#f7f9fc"/>
+<text x="28" y="48" font-size="31" fill="#172b45" text-anchor="start" font-weight="700">Router 选路径，专家处理原向量</text>
+<text x="28" y="89" font-size="25" fill="#52657c" text-anchor="start" font-weight="400">4 个专家、Top-2；一个 token 的手算示例</text>
+<rect x="225" y="117" width="270" height="62" rx="12" fill="#e9f0ff"/>
+<text x="360" y="158" font-size="29" fill="#2864ce" text-anchor="middle" font-weight="700">输入隐藏向量 x</text>
+<path d="M360,185 L360,204 L248,204 L248,220" fill="none" stroke="#2864ce" stroke-width="3" marker-end="url(#a2864ce)"/>
+<path d="M360,204 L608,204 L608,220" fill="none" stroke="#2864ce" stroke-width="3" marker-end="url(#a2864ce)"/>
+<rect x="24" y="230" width="456" height="300" rx="12" fill="white"/>
+<text x="48" y="272" font-size="27" fill="#7851bd" text-anchor="start" font-weight="700">① Router 读取 x 并打分</text>
+<text x="48" y="309" font-size="24" fill="#52657c" text-anchor="start" font-weight="400">softmax 后的概率：</text>
+<rect x="48" y="328" width="96" height="82" rx="8" fill="#fff0de"/>
+<text x="96" y="357" font-size="25" fill="#b96111" text-anchor="middle" font-weight="700">E1</text>
+<text x="96" y="395" font-size="27" fill="#b96111" text-anchor="middle" font-weight="700">0.6</text>
+<rect x="152" y="328" width="96" height="82" rx="8" fill="#e9edf3"/>
+<text x="200" y="357" font-size="25" fill="#52657c" text-anchor="middle" font-weight="700">E2</text>
+<text x="200" y="395" font-size="27" fill="#52657c" text-anchor="middle" font-weight="700">0.1</text>
+<rect x="256" y="328" width="96" height="82" rx="8" fill="#fff0de"/>
+<text x="304" y="357" font-size="25" fill="#b96111" text-anchor="middle" font-weight="700">E3</text>
+<text x="304" y="395" font-size="27" fill="#b96111" text-anchor="middle" font-weight="700">0.2</text>
+<rect x="360" y="328" width="96" height="82" rx="8" fill="#e9edf3"/>
+<text x="408" y="357" font-size="25" fill="#52657c" text-anchor="middle" font-weight="700">E4</text>
+<text x="408" y="395" font-size="27" fill="#52657c" text-anchor="middle" font-weight="700">0.1</text>
+<text x="48" y="450" font-size="24" fill="#7851bd" text-anchor="start" font-weight="400">Top-2：选 E1、E3，重新归一化</text>
+<text x="48" y="485" font-size="26" fill="#b96111" text-anchor="start" font-weight="700">E1：0.6 / 0.8 = 0.75</text>
+<text x="48" y="520" font-size="26" fill="#b96111" text-anchor="start" font-weight="700">E3：0.2 / 0.8 = 0.25</text>
+<rect x="520" y="230" width="176" height="90" rx="12" fill="#e9f0ff"/>
+<text x="608" y="268" font-size="25" fill="#2864ce" text-anchor="middle" font-weight="400">保留同一个</text>
+<text x="608" y="305" font-size="29" fill="#2864ce" text-anchor="middle" font-weight="700">原向量 x</text>
+<path d="M608,329 L608,630 L184,630 L184,646" fill="none" stroke="#2864ce" stroke-width="3" marker-end="url(#a2864ce)"/>
+<path d="M536,630 L536,646" fill="none" stroke="#2864ce" stroke-width="3" marker-end="url(#a2864ce)"/>
+<path d="M248,537 L248,557" fill="none" stroke="#7851bd" stroke-width="3" marker-end="url(#a7851bd)" stroke-dasharray="7 5"/>
+<text x="275" y="552" font-size="23" fill="#7851bd" text-anchor="start" font-weight="400">选择 E1、E3</text>
+<rect x="24" y="566" width="672" height="242" rx="12" fill="white"/>
+<text x="48" y="604" font-size="27" fill="#2864ce" text-anchor="start" font-weight="700">② 两个专家都接收原向量 x</text>
+<path d="M608,566 L608,630 L184,630 L184,646" fill="none" stroke="#2864ce" stroke-width="3" marker-end="url(#a2864ce)"/>
+<path d="M536,630 L536,646" fill="none" stroke="#2864ce" stroke-width="3" marker-end="url(#a2864ce)"/>
+<rect x="64" y="654" width="240" height="106" rx="12" fill="#fff0de"/>
+<text x="184" y="691" font-size="28" fill="#b96111" text-anchor="middle" font-weight="700">执行 E1(x)</text>
+<text x="184" y="737" font-size="28" fill="#172b45" text-anchor="middle" font-weight="400">输出 [4, 0]</text>
+<rect x="416" y="654" width="240" height="106" rx="12" fill="#fff0de"/>
+<text x="536" y="691" font-size="28" fill="#b96111" text-anchor="middle" font-weight="700">执行 E3(x)</text>
+<text x="536" y="737" font-size="28" fill="#172b45" text-anchor="middle" font-weight="400">输出 [0, 4]</text>
+<text x="48" y="791" font-size="24" fill="#52657c" text-anchor="start" font-weight="400">E2、E4 只得到路由分数，本次不执行 FFN。</text>
+<path d="M184,815 L184,827 L360,827 L360,844" fill="none" stroke="#b96111" stroke-width="3" marker-end="url(#ab96111)"/>
+<path d="M536,815 L536,827 L360,827" fill="none" stroke="#b96111" stroke-width="3"/>
+<rect x="24" y="850" width="672" height="152" rx="12" fill="#e5f5f3"/>
+<text x="48" y="889" font-size="27" fill="#087e86" text-anchor="start" font-weight="700">③ 按路由权重合并两个输出</text>
+<text x="360" y="935" font-size="28" fill="#172b45" text-anchor="middle" font-weight="400">0.75 × [4, 0] + 0.25 × [0, 4]</text>
+<text x="360" y="980" font-size="31" fill="#087e86" text-anchor="middle" font-weight="700">= [3, 1]</text>
+<text x="28" y="1043" font-size="24" fill="#2864ce" text-anchor="start" font-weight="400">蓝线：原向量 x</text>
+<text x="357" y="1043" font-size="24" fill="#7851bd" text-anchor="start" font-weight="400">紫虚线：路由选择</text>
+<text x="28" y="1081" font-size="23" fill="#52657c" text-anchor="start" font-weight="400">数值为教学构造；为便于手算，将隐藏维度简化为 2。</text>
+</svg>

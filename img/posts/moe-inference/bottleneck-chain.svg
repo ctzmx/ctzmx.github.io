@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1380" viewBox="0 0 720 1380" role="img" aria-labelledby="title desc">
+<title id="title">MoE 瓶颈如何产生：三条有条件的因果链</title>
+<desc id="desc">第一条链：同一批 T 个 token，在 Dense 中由一组 FFN 处理，在均衡路由且专家同尺寸的 MoE 中，每个专家平均处理 T乘k除以N 个，局部矩阵变小，权重在组内的复用可能下降。第二条链：在同一总 GPU 显存预算、KV 结构与精度相同、其他占用可比时，相比常驻权重更少的 Dense，更多常驻专家权重可能减少 KV 预算；当容量构成约束时，可容纳的并发和批量更小，每个专家的 token 数也可能更少。第三条链：采用专家并行时，路由后的激活要发往目标卡，等待专家执行，再回传合并；传输、同步与慢参与者可能进入关键路径。Dense 的张量并行同样会通信，MoE 的专家并行增加的是按路由分发与回收激活。图为条件化因果示意，并不表示 MoE 必然比 Dense 慢。</desc>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC","PingFang SC",system-ui,sans-serif;font-variant-numeric:tabular-nums}</style>
+<defs>
+<marker id="purple-arrow" markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L11,5.5 L0,11 Z" fill="#7851bd"/></marker>
+<marker id="orange-arrow" markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L11,5.5 L0,11 Z" fill="#b96111"/></marker>
+</defs>
+<rect width="720" height="1380" rx="18" fill="#f7f9fc"/>
+<text x="28" y="48" font-size="32" fill="#172b45" font-weight="700">MoE 瓶颈：三条因果链</text>
+<text x="28" y="88" font-size="25" fill="#52657c">计算少了，组织数据与等待仍可能成为成本</text>
+
+<rect x="24" y="116" width="672" height="328" rx="12" fill="white"/>
+<text x="44" y="157" font-size="28" fill="#7851bd" font-weight="700">① 拆分 batch：局部复用可能下降</text>
+<rect x="44" y="180" width="632" height="52" rx="10" fill="#e9f0ff"/>
+<text x="360" y="215" font-size="26" fill="#2864ce" text-anchor="middle">Dense：一个 FFN 处理全部 T 个 token</text>
+<rect x="44" y="250" width="632" height="52" rx="10" fill="#f0eafa"/>
+<text x="360" y="285" font-size="26" fill="#7851bd" text-anchor="middle">MoE：每专家平均约 T × k / N 个 token</text>
+<path d="M360,310 L360,336" fill="none" stroke="#7851bd" stroke-width="3" marker-end="url(#purple-arrow)"/>
+<text x="360" y="373" font-size="28" fill="#172b45" font-weight="600" text-anchor="middle">矩阵更小，组内权重复用可能减少</text>
+<text x="44" y="421" font-size="23" fill="#52657c">前提：专家同尺寸、路由均衡，且 k &lt; N。</text>
+
+<rect x="24" y="464" width="672" height="430" rx="12" fill="white"/>
+<text x="44" y="505" font-size="28" fill="#b96111" font-weight="700">② 权重占容量：batch 上限可能受限</text>
+<text x="44" y="546" font-size="23" fill="#52657c">同一显存预算，KV 结构、精度与其余占用可比；</text>
+<text x="44" y="579" font-size="23" fill="#52657c">对比常驻权重更少的 Dense 模型。</text>
+<rect x="44" y="596" width="632" height="48" rx="10" fill="#fff0de"/>
+<text x="360" y="629" font-size="26" fill="#b96111" text-anchor="middle">常驻权重更多 → 剩余 KV 空间更少</text>
+<path d="M360,651 L360,674" fill="none" stroke="#b96111" stroke-width="3" marker-end="url(#orange-arrow)"/>
+<rect x="44" y="682" width="632" height="48" rx="10" fill="#fff0de"/>
+<text x="360" y="715" font-size="26" fill="#b96111" text-anchor="middle">可容纳的并发 / batch 可能更小</text>
+<path d="M360,737 L360,760" fill="none" stroke="#b96111" stroke-width="3" marker-end="url(#orange-arrow)"/>
+<rect x="44" y="768" width="632" height="48" rx="10" fill="#fff0de"/>
+<text x="360" y="801" font-size="26" fill="#b96111" text-anchor="middle">每个专家收到的 token 进一步减少</text>
+<text x="44" y="860" font-size="23" fill="#52657c">显存容量成为约束时，这条链才会生效。</text>
+
+<rect x="24" y="914" width="672" height="352" rx="12" fill="white"/>
+<text x="44" y="958" font-size="28" fill="#087e86" font-weight="700">③ 跨卡依赖：传输与等待可能挡路</text>
+<rect x="44" y="982" width="632" height="52" rx="10" fill="#e5f5f3"/>
+<text x="360" y="1017" font-size="27" fill="#087e86" text-anchor="middle">路由后发激活 → 目标卡执行</text>
+<path d="M360,1041 L360,1062" fill="none" stroke="#7851bd" stroke-width="3" marker-end="url(#purple-arrow)"/>
+<rect x="44" y="1070" width="632" height="52" rx="10" fill="#e5f5f3"/>
+<text x="360" y="1105" font-size="27" fill="#087e86" text-anchor="middle">回传与合并 → 后续计算继续</text>
+<text x="44" y="1164" font-size="25" fill="#172b45" font-weight="600">传输、同步与慢参与者可能进入关键路径。</text>
+<text x="44" y="1204" font-size="23" fill="#52657c">此处讨论 EP（专家并行）；不要求全部路由远程。</text>
+<text x="44" y="1238" font-size="23" fill="#52657c">Dense 的 TP 也通信；EP 增加按专家分发。</text>
+
+<text x="28" y="1310" font-size="26" fill="#52657c">瓶颈由实际负载、专家放置与硬件共同决定。</text>
+<text x="28" y="1356" font-size="28" fill="#172b45" font-weight="700">少算 FLOPs，不保证延迟同比下降。</text>
+</svg>

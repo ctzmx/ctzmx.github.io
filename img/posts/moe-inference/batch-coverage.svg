@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="790" viewBox="0 0 960 790" role="img" aria-labelledby="title desc">
+<title id="title">单 token 稀疏，整批也可能触达全部专家</title>
+<desc id="desc">均匀、独立地为每个 token 选择 8 个专家中的 2 个，整批期望触达专家数为 8乘以[1减(3/4)的T次方]。T为1、4、8、16时分别为2、5.47、7.20、7.92。曲线为解析结果而非实测；各token仍只执行2个专家。</desc>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC","PingFang SC",system-ui,sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect width="960" height="790" rx="18" fill="#f7f9fc"/>
+<text x="36" y="53" font-size="34" fill="#172b45" text-anchor="start" font-weight="700">单 token 稀疏，整批也可能触达全部专家</text>
+<text x="36" y="96" font-size="26" fill="#52657c" text-anchor="start" font-weight="400">8 个专家，每个 token 选 2 个；均匀独立路由的理论结果</text>
+<rect x="24" y="122" width="912" height="432" rx="12" fill="white"/>
+<text x="52" y="158" font-size="24" fill="#52657c" text-anchor="start" font-weight="400">期望触达专家数</text>
+<line x1="106" y1="478" x2="886" y2="478" stroke="#dce4ef" stroke-dasharray="none"/>
+<text x="88" y="486" font-size="24" fill="#52657c" text-anchor="end" font-weight="400">0</text>
+<line x1="106" y1="408" x2="886" y2="408" stroke="#dce4ef" stroke-dasharray="none"/>
+<text x="88" y="416" font-size="24" fill="#52657c" text-anchor="end" font-weight="400">2</text>
+<line x1="106" y1="338" x2="886" y2="338" stroke="#dce4ef" stroke-dasharray="none"/>
+<text x="88" y="346" font-size="24" fill="#52657c" text-anchor="end" font-weight="400">4</text>
+<line x1="106" y1="268" x2="886" y2="268" stroke="#dce4ef" stroke-dasharray="none"/>
+<text x="88" y="276" font-size="24" fill="#52657c" text-anchor="end" font-weight="400">6</text>
+<line x1="106" y1="198" x2="886" y2="198" stroke="#7851bd" stroke-dasharray="7 5"/>
+<text x="88" y="206" font-size="24" fill="#52657c" text-anchor="end" font-weight="400">8</text>
+<text x="886" y="183" font-size="23" fill="#7851bd" text-anchor="end" font-weight="400">全部 8 个专家</text>
+<text x="106" y="512" font-size="24" fill="#52657c" text-anchor="middle" font-weight="400">0</text>
+<text x="154.75" y="512" font-size="24" fill="#52657c" text-anchor="middle" font-weight="400">1</text>
+<text x="301" y="512" font-size="24" fill="#52657c" text-anchor="middle" font-weight="400">4</text>
+<text x="496" y="512" font-size="24" fill="#52657c" text-anchor="middle" font-weight="400">8</text>
+<text x="691" y="512" font-size="24" fill="#52657c" text-anchor="middle" font-weight="400">12</text>
+<text x="886" y="512" font-size="24" fill="#52657c" text-anchor="middle" font-weight="400">16</text>
+<text x="886" y="542" font-size="23" fill="#52657c" text-anchor="end" font-weight="400">进入该层的 token 数 T</text>
+<path d="M106,478 L154.75,408 L203.5,355.5 L252.25,316.125 L301,286.59375 L349.75,264.4453125 L398.5,247.833984375 L447.25,235.37548828125 L496,226.0316162109375 L544.75,219.02371215820312 L593.5,213.76778411865234 L642.25,209.82583808898926 L691,206.86937856674194 L739.75,204.65203392505646 L788.5,202.98902544379234 L837.25,201.74176908284426 L886,200.8063268121332" fill="none" stroke="#7851bd" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="154.75" cy="408" r="7" fill="#7851bd" stroke="white" stroke-width="2"/>
+<circle cx="301" cy="286.59375" r="7" fill="#7851bd" stroke="white" stroke-width="2"/>
+<circle cx="496" cy="226.0316162109375" r="7" fill="#7851bd" stroke="white" stroke-width="2"/>
+<circle cx="886" cy="200.8063268121332" r="7" fill="#7851bd" stroke="white" stroke-width="2"/>
+<rect x="24" y="576" width="216" height="114" rx="12" fill="#f0eafb"/>
+<text x="132" y="614" font-size="26" fill="#52657c" text-anchor="middle" font-weight="400">T = 1</text>
+<text x="132" y="664" font-size="32" fill="#7851bd" text-anchor="middle" font-weight="700">2.00 个</text>
+<rect x="256" y="576" width="216" height="114" rx="12" fill="#f0eafb"/>
+<text x="364" y="614" font-size="26" fill="#52657c" text-anchor="middle" font-weight="400">T = 4</text>
+<text x="364" y="664" font-size="32" fill="#7851bd" text-anchor="middle" font-weight="700">5.47 个</text>
+<rect x="488" y="576" width="216" height="114" rx="12" fill="#f0eafb"/>
+<text x="596" y="614" font-size="26" fill="#52657c" text-anchor="middle" font-weight="400">T = 8</text>
+<text x="596" y="664" font-size="32" fill="#7851bd" text-anchor="middle" font-weight="700">7.20 个</text>
+<rect x="720" y="576" width="216" height="114" rx="12" fill="#f0eafb"/>
+<text x="828" y="614" font-size="26" fill="#52657c" text-anchor="middle" font-weight="400">T = 16</text>
+<text x="828" y="664" font-size="32" fill="#7851bd" text-anchor="middle" font-weight="700">7.92 个</text>
+<text x="36" y="735" font-size="28" fill="#172b45" text-anchor="start" font-weight="600">每 token 的任务数仍为 2；整批任务数仍为 T × 2</text>
+<text x="36" y="773" font-size="22" fill="#52657c" text-anchor="start" font-weight="400">假设：每 token 不放回选 2 个，token 之间独立。实际路由可能偏斜。</text>
+</svg>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1230" viewBox="0 0 720 1230" role="img" aria-labelledby="title desc">
+<title id="title">普通 FFN 与 SwiGLU 的内部计算</title>
+<desc id="desc">输入 X 的形状为 T乘d，T是token数，d是隐藏维度，m是FFN中间维度。普通FFN先用W_up从d投影到m，应用非线性函数，再用W_down投影回d。SwiGLU让同一个X分别经过W_gate和W_up两路投影；gate路应用SiLU，随后两路在T乘m形状下逐元素相乘，再由W_down投影回T乘d。两路投影都会计算；这种特征门控不是MoE的Top-k专家路由，SiLU输出也不是0到1的概率。各位置共享同一套权重，FFN本身不在token位置之间混合信息。图省略bias、归一化与残差连接。</desc>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC","PingFang SC",system-ui,sans-serif;font-variant-numeric:tabular-nums}</style>
+<defs>
+<marker id="blue-arrow" markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L11,5.5 L0,11 Z" fill="#2864ce"/></marker>
+<marker id="purple-arrow" markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L11,5.5 L0,11 Z" fill="#7851bd"/></marker>
+</defs>
+<rect width="720" height="1230" rx="18" fill="#f7f9fc"/>
+<g fill="#172b45">
+<text x="28" y="48" font-size="32" font-weight="700">FFN：变换特征，再回到原维度</text>
+<text x="28" y="89" font-size="25" fill="#52657c">T 个 token；隐藏维度 d，中间维度 m</text>
+</g>
+
+<rect x="24" y="118" width="672" height="460" rx="12" fill="white"/>
+<text x="44" y="159" font-size="29" font-weight="700" fill="#2864ce">① 普通 FFN：两次线性投影</text>
+<g font-size="27" font-weight="600" text-anchor="middle">
+<rect x="240" y="180" width="240" height="48" rx="10" fill="#e9f0ff"/>
+<text x="360" y="213" fill="#2864ce">输入 X：[T, d]</text>
+<rect x="240" y="250" width="240" height="48" rx="10" fill="#e9f0ff"/>
+<text x="360" y="283" fill="#2864ce">W_up：d → m</text>
+<rect x="240" y="320" width="240" height="48" rx="10" fill="#e5f5f3"/>
+<text x="360" y="353" fill="#087e86">非线性函数 φ</text>
+<rect x="240" y="390" width="240" height="48" rx="10" fill="#e9f0ff"/>
+<text x="360" y="423" fill="#2864ce">W_down：m → d</text>
+<rect x="240" y="460" width="240" height="48" rx="10" fill="#e5f5f3"/>
+<text x="360" y="493" fill="#087e86">输出：[T, d]</text>
+</g>
+<g fill="none" stroke="#2864ce" stroke-width="3" marker-end="url(#blue-arrow)">
+<path d="M360,232 V246"/><path d="M360,302 V316"/><path d="M360,372 V386"/><path d="M360,442 V456"/>
+</g>
+<text x="500" y="284" font-size="25" fill="#52657c">[T, m]</text>
+<text x="500" y="354" font-size="25" fill="#52657c">[T, m]</text>
+<text x="44" y="550" font-size="25" fill="#52657c">逐 token 计算；所有位置使用同一套权重。</text>
+
+<rect x="24" y="598" width="672" height="528" rx="12" fill="white"/>
+<text x="44" y="640" font-size="29" font-weight="700" fill="#7851bd">② SwiGLU：三次投影 + 特征门控</text>
+<rect x="240" y="662" width="240" height="48" rx="10" fill="#e9f0ff"/>
+<text x="360" y="695" font-size="27" font-weight="600" text-anchor="middle" fill="#2864ce">同一个 X：[T, d]</text>
+<g fill="none" stroke="#2864ce" stroke-width="3" marker-end="url(#blue-arrow)">
+<path d="M360,715 V732 H190 V748"/>
+<path d="M360,732 H530 V748"/>
+</g>
+<g font-size="26" font-weight="600" text-anchor="middle">
+<rect x="70" y="752" width="240" height="54" rx="10" fill="#f0eafa"/>
+<text x="190" y="788" fill="#7851bd">W_gate：d → m</text>
+<rect x="410" y="752" width="240" height="54" rx="10" fill="#e9f0ff"/>
+<text x="530" y="788" fill="#2864ce">W_up：d → m</text>
+<rect x="70" y="840" width="240" height="48" rx="10" fill="#f0eafa"/>
+<text x="190" y="873" fill="#7851bd">SiLU 激活函数</text>
+</g>
+<path d="M190,811 V835" fill="none" stroke="#7851bd" stroke-width="3" marker-end="url(#purple-arrow)"/>
+<path d="M190,893 V920 H331" fill="none" stroke="#7851bd" stroke-width="3" marker-end="url(#purple-arrow)"/>
+<path d="M530,811 V920 H389" fill="none" stroke="#2864ce" stroke-width="3" marker-end="url(#blue-arrow)"/>
+<text x="548" y="864" font-size="25" fill="#52657c">[T, m]</text>
+<circle cx="360" cy="920" r="26" fill="#fff0de"/>
+<text x="360" y="931" font-size="37" text-anchor="middle" fill="#b96111">⊙</text>
+<text x="208" y="963" font-size="25" text-anchor="middle" fill="#52657c">两路均为 [T, m]</text>
+<text x="509" y="963" font-size="25" text-anchor="middle" fill="#b96111">逐元素相乘</text>
+<path d="M360,951 V977" fill="none" stroke="#2864ce" stroke-width="3" marker-end="url(#blue-arrow)"/>
+<rect x="240" y="982" width="240" height="50" rx="10" fill="#e9f0ff"/>
+<text x="360" y="1016" font-size="27" font-weight="600" text-anchor="middle" fill="#2864ce">W_down：m → d</text>
+<path d="M360,1037 V1055" fill="none" stroke="#2864ce" stroke-width="3" marker-end="url(#blue-arrow)"/>
+<rect x="240" y="1060" width="240" height="48" rx="10" fill="#e5f5f3"/>
+<text x="360" y="1093" font-size="27" font-weight="600" text-anchor="middle" fill="#087e86">输出：[T, d]</text>
+
+<text x="28" y="1165" font-size="26" font-weight="600" fill="#172b45">两路投影都计算；门控作用于特征维度。</text>
+<text x="28" y="1205" font-size="24" fill="#52657c">区别于 MoE Top-k；省略 bias、Norm 与残差。</text>
+</svg>
