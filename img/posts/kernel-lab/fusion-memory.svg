@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="1190" viewBox="0 0 760 1190" role="img" aria-labelledby="title desc">
+<title id="title">融合 RMSNorm 如何减少中间数据的显存读写</title>
+<desc id="desc">RMSNorm 对每行计算均方值，加 epsilon 后取倒数平方根，再用它和权重缩放输入。未融合的逐步算子实现可能把平方结果和缩放结果等中间张量写入显存，之后的 kernel 再读回。融合实现让一个 Triton program 处理一行，读取 x 和权重 w，在寄存器及编译器安排的块内通信中完成归约和缩放，最后写出 y，不再为这些中间张量单独分配全局内存。图中算子阶段不对应固定的实际 kernel 数；具体 kernel 数和片上存储由实现、编译器及形状决定。融合减少的数据搬运不等于必然加速，必须实测。</desc>
+<defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 Z" fill="#52657c"/></marker></defs>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC","PingFang SC",system-ui,sans-serif;font-variant-numeric:tabular-nums}.title{font-size:31px;font-weight:700;fill:#172b45}.label{font-size:27px;font-weight:600}.body{font-size:25px;fill:#172b45}.note{font-size:23px;fill:#52657c}.wire{fill:none;stroke:#52657c;stroke-width:3;marker-end:url(#arrow)}</style>
+<rect width="760" height="1190" rx="18" fill="#f7f9fc"/>
+<text x="30" y="49" class="title">融合：让中间结果少走几趟显存</text>
+<text x="30" y="90" class="note">以一行 RMSNorm 为例：归约求尺度，再逐元素缩放</text>
+
+<rect x="26" y="117" width="708" height="441" rx="14" fill="#fff"/>
+<text x="48" y="160" class="label" fill="#b16c19">① 分步实现：多次提交 kernel</text>
+<rect x="48" y="183" width="664" height="51" rx="9" fill="#fff3dc"/>
+<text x="380" y="217" class="body" text-anchor="middle">显存中的输入 x</text>
+<path d="M380 235 L380 266" class="wire"/>
+<text x="380" y="299" class="body" text-anchor="middle">逐元素平方 → 归约求均值 → 求缩放尺度</text>
+<path d="M380 312 L380 342" class="wire"/>
+<rect x="48" y="353" width="664" height="61" rx="9" fill="#fff3dc" stroke="#e7be7c" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="380" y="392" class="body" text-anchor="middle">阶段之间：把中间张量写入显存，再读回</text>
+<path d="M380 416 L380 445" class="wire"/>
+<text x="380" y="478" class="body" text-anchor="middle">用尺度和权重 w 缩放 x，写出 y</text>
+<text x="48" y="529" class="note">图中是计算阶段；实际 kernel 数由实现决定。</text>
+
+<rect x="26" y="588" width="708" height="424" rx="14" fill="#fff"/>
+<text x="48" y="631" class="label" fill="#087e86">② 融合实现：一次提交 kernel</text>
+<rect x="48" y="655" width="664" height="51" rx="9" fill="#e5f5f3"/>
+<text x="380" y="689" class="body" text-anchor="middle">从显存读取这一行 x 和权重 w</text>
+<path d="M380 708 L380 737" class="wire"/>
+<rect x="48" y="748" width="664" height="147" rx="10" fill="#e9f0ff"/>
+<text x="380" y="787" class="label" fill="#2864ce" text-anchor="middle">一个 program 内完成归约与缩放</text>
+<text x="380" y="830" class="body" text-anchor="middle">寄存器 + 编译器安排的块内通信</text>
+<text x="380" y="870" class="note" text-anchor="middle">平方、均值等中间张量不再单独写回显存</text>
+<path d="M380 897 L380 926" class="wire"/>
+<rect x="48" y="937" width="664" height="51" rx="9" fill="#e5f5f3"/>
+<text x="380" y="971" class="body" text-anchor="middle">把这一行的最终结果 y 写入显存</text>
+
+<text x="30" y="1054" class="note">融合减少中间读写和提交次数，收益仍需实测。</text>
+<text x="30" y="1095" class="note">归约可能用共享内存；不能假定只使用寄存器。</text>
+<text x="30" y="1136" class="note">program 是 Triton 的工作单元，不是单个线程。</text>
+</svg>

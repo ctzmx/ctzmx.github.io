@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="1140" viewBox="0 0 760 1140" role="img" aria-labelledby="title desc">
+<title id="title">一次向量加法 kernel 如何从 CPU 交给 GPU</title>
+<desc id="desc">CPU 准备主存中的 x 和 y，把它们复制到 GPU 显存，再提交 kernel。示例有八个元素，grid 包含两个 block，每个 block 启动四个线程，每个线程处理一个不同的元素。GPU 线程读取显存中的输入，把和写到显存中的 z。确认计算完成后，结果可以从设备复制回主机供 CPU 使用。提交 kernel 通常是异步的，提交返回不等于 GPU 已经完成。每块四个线程仅用于讲解索引，NVIDIA warp 宽度仍为三十二，示例中其余 lane 不活动。图省略 stream 和缓存层级。</desc>
+<defs>
+<marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 Z" fill="#2864ce"/></marker>
+<marker id="green-arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 Z" fill="#087e86"/></marker>
+</defs>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC","PingFang SC",system-ui,sans-serif;font-variant-numeric:tabular-nums}.title{font-size:31px;font-weight:700;fill:#172b45}.label{font-size:26px;font-weight:600}.body{font-size:24px;fill:#172b45}.note{font-size:23px;fill:#52657c}.wire{fill:none;stroke:#2864ce;stroke-width:3;marker-end:url(#arrow)}</style>
+<rect width="760" height="1140" rx="18" fill="#f7f9fc"/>
+<text x="30" y="49" class="title">CPU 发起任务，GPU 并行计算</text>
+<text x="30" y="88" class="note">例子：把 8 对数相加，得到 z[i] = x[i] + y[i]</text>
+
+<rect x="26" y="117" width="708" height="147" rx="14" fill="#fff" stroke="#cbd9eb" stroke-width="2"/>
+<text x="48" y="157" class="label" fill="#2864ce">① CPU / host</text>
+<text x="48" y="198" class="body">准备输入、分配设备内存、发起任务</text>
+<rect x="48" y="216" width="300" height="32" rx="7" fill="#e9f0ff"/>
+<text x="198" y="240" class="note" text-anchor="middle">主存：x、y</text>
+
+<path d="M198 265 L198 339" class="wire"/>
+<text x="217" y="300" class="note">H2D：主机 → 设备</text>
+<text x="462" y="329" class="note" fill="#087e86">再提交 kernel ↓</text>
+
+<rect x="26" y="348" width="708" height="491" rx="14" fill="#fff" stroke="#9ec4c4" stroke-width="2"/>
+<text x="48" y="390" class="label" fill="#087e86">② GPU / device</text>
+<rect x="48" y="411" width="664" height="55" rx="9" fill="#e5f5f3"/>
+<text x="380" y="447" class="body" text-anchor="middle">显存中的输入 x、y</text>
+<path d="M380 467 L380 505" class="wire"/>
+<text x="48" y="510" class="label" fill="#2864ce">一次 launch 的 grid</text>
+
+<rect x="48" y="528" width="316" height="142" rx="11" fill="#e9f0ff"/>
+<rect x="396" y="528" width="316" height="142" rx="11" fill="#e9f0ff"/>
+<text x="206" y="562" class="label" text-anchor="middle" fill="#2864ce">block 0</text>
+<text x="554" y="562" class="label" text-anchor="middle" fill="#2864ce">block 1</text>
+<g font-size="23" fill="#172b45" text-anchor="middle">
+<rect x="60" y="580" width="64" height="42" rx="6" fill="#fff"/><text x="92" y="608">t0</text>
+<rect x="136" y="580" width="64" height="42" rx="6" fill="#fff"/><text x="168" y="608">t1</text>
+<rect x="212" y="580" width="64" height="42" rx="6" fill="#fff"/><text x="244" y="608">t2</text>
+<rect x="288" y="580" width="64" height="42" rx="6" fill="#fff"/><text x="320" y="608">t3</text>
+<rect x="408" y="580" width="64" height="42" rx="6" fill="#fff"/><text x="440" y="608">t0</text>
+<rect x="484" y="580" width="64" height="42" rx="6" fill="#fff"/><text x="516" y="608">t1</text>
+<rect x="560" y="580" width="64" height="42" rx="6" fill="#fff"/><text x="592" y="608">t2</text>
+<rect x="636" y="580" width="64" height="42" rx="6" fill="#fff"/><text x="668" y="608">t3</text>
+<text x="92" y="652">i=0</text><text x="168" y="652">i=1</text><text x="244" y="652">i=2</text><text x="320" y="652">i=3</text>
+<text x="440" y="652">i=4</text><text x="516" y="652">i=5</text><text x="592" y="652">i=6</text><text x="668" y="652">i=7</text>
+</g>
+<text x="380" y="709" class="body" text-anchor="middle">i = block 编号 × 4 + 块内 thread 编号</text>
+<path d="M380 722 L380 750" class="wire"/>
+<rect x="48" y="761" width="664" height="55" rx="9" fill="#e5f5f3"/>
+<text x="380" y="797" class="body" text-anchor="middle">各线程把结果写入显存 z 的不同位置</text>
+
+<path d="M380 840 L380 902" fill="none" stroke="#087e86" stroke-width="3" marker-end="url(#green-arrow)"/>
+<text x="402" y="878" class="note">D2H：设备 → 主机</text>
+<rect x="26" y="914" width="708" height="72" rx="12" fill="#fff" stroke="#cbd9eb" stroke-width="2"/>
+<text x="380" y="958" class="body" text-anchor="middle">③ 确认计算与复制完成后，CPU 使用结果</text>
+
+<text x="30" y="1026" class="note">提交通常是异步的：函数返回 ≠ GPU 计算完成。</text>
+<text x="30" y="1064" class="note">示意每块仅 4 个线程；实际 warp 宽度仍为 32。</text>
+<text x="30" y="1102" class="note">图省略 stream、缓存和未活动的 lane。</text>
+</svg>

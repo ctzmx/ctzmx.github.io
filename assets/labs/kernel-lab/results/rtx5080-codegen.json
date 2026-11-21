@@ -1,0 +1,35 @@
+{
+  "torch": "2.9.1+cu128",
+  "triton": "3.5.1",
+  "gpu": "NVIDIA GeForce RTX 5080",
+  "compute_capability": [
+    12,
+    0
+  ],
+  "kernel": "_matmul_kernel",
+  "shape_MNK": [
+    128,
+    128,
+    128
+  ],
+  "tile": [
+    32,
+    64,
+    32
+  ],
+  "num_warps": 4,
+  "num_stages": 3,
+  "registers_per_thread": 52,
+  "shared_memory_bytes": 12288,
+  "matrix_instructions_in_ptx": [
+    "mma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32"
+  ],
+  "ptx_sha256": "94584091378515d5e073b03b81eb48c8bdc81e32a183541b3117350f3be41f6f",
+  "source_sha256_normalization": "UTF-8, LF line endings",
+  "source_sha256": {
+    "inspect_codegen.py": "a965a226daa94ee7fa1cff94eb015a8b744ca80a51d745c35124a2d66455f552",
+    "matmul.py": "09b80d0698c35fb77113a3b66a7237226dd8d9d5007bc0f1c8606227be2373c5"
+  },
+  "correctness_passed": true,
+  "note": "PTX inspection is version-specific; this is not SASS or a profiler measurement."
+}

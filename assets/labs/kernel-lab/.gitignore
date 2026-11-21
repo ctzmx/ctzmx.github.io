@@ -1,0 +1,4 @@
+__pycache__/
+my-*.json
+results.json
+codegen.json
